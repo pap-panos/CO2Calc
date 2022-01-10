@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 const Car = ({ toNextTab, toPrevTab }) => {
   return (
@@ -8,8 +7,8 @@ const Car = ({ toNextTab, toPrevTab }) => {
         <h5 className="card-title text-center">
           Car carbon footprint calculator
         </h5>
-        <form>
-          <div className="col py-2">
+        <form className="row justify-content-md-center">
+          <div className="col-12 py-2">
             <span>You can enter details for cars</span>
           </div>
           <div className="col-md-4 py-2">
@@ -17,24 +16,22 @@ const Car = ({ toNextTab, toPrevTab }) => {
             <div className="input-group">
               <input type="number" className="form-control" required />
               <select className="form-select" defaultValue="1" required>
-                <option value="1">Kilometers</option>
+                <option value="1">KM</option>
                 <option value="2">Miles</option>
               </select>
             </div>
           </div>
           <div className="col-md-4 py-2">
-            <label className="form-label">Choose vehicle:</label>
-            <select className="form-select" defaultValue="0" required>
-              <option disabled value="0">
-                Cars Database
-              </option>
-              <option value="1">Audi</option>
-              <option value="2">BMW</option>
-              <option value="3">Opel</option>
+            <label className="form-label">Car Age:</label>
+            <select className="form-select" defaultValue="2" required>
+              <option value="1">1998 or older...</option>
+              <option value="2">1999 - 2009</option>
+              <option value="3">2009 - 2019</option>
+              <option value="4">2020 or newer...</option>
             </select>
           </div>
           <div className="col-md-6 py-2">
-            <label className="form-label">Or enter efficiency:</label>
+            <label className="form-label">Enter efficiency:</label>
             <div className="input-group">
               <input type="number" className="form-control" required />
               <select className="form-select" defaultValue="1" required>
@@ -51,26 +48,16 @@ const Car = ({ toNextTab, toPrevTab }) => {
               </select>
             </div>
           </div>
-          <div className="col py-2">
-            <div className="d-flex justify-content-evenly">
-              <button
-                onClick={(e) => toPrevTab(e)}
-                className="btn btn-outline-primary"
-              >
-                Previous
+          <div className="col-12 py-2">
+            <div className="d-flex justify-content-between">
+              <button onClick={(e) => toPrevTab(e)} className="btn btn-primary">
+                Flights
               </button>
-              <NavLink to="/" role="button" className="btn btn-danger">
-                Exit
-              </NavLink>
-              <button className="btn btn-outline-secondary">Clear</button>
-              <button type="submit" className="btn btn-success">
-                Submit
+              <button type="submit" className="btn btn-success mx-1">
+                Calculate & Add To Footprint
               </button>
-              <button
-                onClick={(e) => toNextTab(e)}
-                className="btn btn-outline-primary"
-              >
-                Next
+              <button onClick={(e) => toNextTab(e)} className="btn btn-primary">
+                Motorbike
               </button>
             </div>
           </div>

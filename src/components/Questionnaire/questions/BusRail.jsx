@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 const BusRail = ({ toPrevTab, toNextTab }) => {
   return (
@@ -8,8 +7,8 @@ const BusRail = ({ toPrevTab, toNextTab }) => {
         <h5 className="card-title text-center">
           Public transport carbon footprint calculator
         </h5>
-        <form>
-          <div className="col py-2">
+        <form className="row justify-content-md-center">
+          <div className="col-12 py-2">
             <span>Enter mileage for each type of public transport</span>
           </div>
           <div className="col-md-6 py-2">
@@ -70,23 +69,15 @@ const BusRail = ({ toPrevTab, toNextTab }) => {
               </select>
             </div>
           </div>
-          <div className="col py-2">
-            <div className="d-flex justify-content-evenly">
-              <button
-                onClick={(e) => toPrevTab(e)}
-                className="btn btn-outline-primary"
-              >
+          <div className="col-12 py-2">
+            <div className="d-flex justify-content-between">
+              <button onClick={(e) => toPrevTab(e)} className="btn btn-primary">
                 Motorbike
               </button>
-              <NavLink to="/" role="button" className="btn btn-danger">
-                Exit
-              </NavLink>
-              <button className="btn btn-outline-secondary">Clear</button>
-              <button className="btn btn-primary">Submit</button>
-              <button
-                onClick={(e) => toNextTab(e)}
-                className="btn btn-outline-primary"
-              >
+              <button className="btn btn-success mx-1" type="submit">
+                Calculate & Add To Footprint
+              </button>
+              <button onClick={(e) => toNextTab(e)} className="btn btn-primary">
                 Results
               </button>
             </div>
