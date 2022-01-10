@@ -4,6 +4,7 @@ import ProgressBar from "./ProgressBar";
 import Sidebar from "./Sidebar";
 import ChartContent from "./ChartContent";
 import TuningBar from "./TuningBar";
+import ModalAnswers from "./ModalAnswers";
 
 const Dashboard = () => {
   const [totalData, setTotalData] = useState([515, 510, 535, 575]);
@@ -111,6 +112,7 @@ const Dashboard = () => {
   return (
     <div className="container-fluid py-3">
       <ProgressBar progress={progress}></ProgressBar>
+      <ModalAnswers></ModalAnswers>
       <div className="row justify-content-md-center">
         <div className="col-md-auto p-0 rounded">
           <Sidebar></Sidebar>

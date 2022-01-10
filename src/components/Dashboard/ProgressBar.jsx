@@ -28,7 +28,12 @@ const ProgressBar = ({ progress }) => {
         className="col-lg-2 d-flex align-items-center justify-content-center"
         style={{ height: "4rem" }}
       >
-        <button disabled={progress < 79} className="btn btn-success">
+        <button
+          disabled={progress < 79}
+          className="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
           Submit Answers
         </button>
       </div>
