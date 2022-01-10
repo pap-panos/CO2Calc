@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [totalData, setTotalData] = useState([515, 510, 535, 575]);
   const [fuelData, setFuelData] = useState([505, 500, 525, 565]);
   const [airData, setAirData] = useState([100, 60, 60]);
-  const [progress, setProgress] = useState(15);
+  const [progress, setProgress] = useState(5);
   const [prev, setPrev] = useState(1);
 
   const handleChart = (c) => {
