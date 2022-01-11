@@ -13,6 +13,7 @@ import Results from "./results/Results";
 
 const Questions = () => {
   const [activeTab, setActiveTab] = useState("welcome");
+  const [cities, setCities] = useState();
   const [cityRes, setCityRes] = useState(4);
   const [countryRes, setCountryRes] = useState(4);
 
@@ -29,10 +30,22 @@ const Questions = () => {
   const handleCountry = (e) => {
     if (e === "1") {
       setCountryRes(60);
+      if (cityRes !== 4) {
+        setCityRes(68);
+      }
+      setCities(<option value="1">Athens</option>);
     } else if (e === "2") {
       setCountryRes(50);
+      if (cityRes !== 4) {
+        setCityRes(58);
+      }
+      setCities(<option value="2">Brussels</option>);
     } else {
       setCountryRes(40);
+      if (cityRes !== 4) {
+        setCityRes(48);
+      }
+      setCities(<option value="3">Berlin</option>);
     }
   };
 
@@ -112,6 +125,7 @@ const Questions = () => {
             toNextTab={toNextTab}
             toPrevTab={toPrevTab}
             handleCity={handleCity}
+            cities={cities}
           ></Demographic>
         </Tab>
         <Tab title="House" eventKey="house" id="house-tab">

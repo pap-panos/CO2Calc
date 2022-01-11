@@ -1,6 +1,6 @@
 import React from "react";
 
-const Demographic = ({ toNextTab, toPrevTab, handleCity }) => {
+const Demographic = ({ toNextTab, toPrevTab, handleCity, cities }) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -19,9 +19,7 @@ const Demographic = ({ toNextTab, toPrevTab, handleCity }) => {
               <option disabled value="0">
                 Choose...
               </option>
-              <option value="1">Athens</option>
-              <option value="2">Berlin</option>
-              <option value="3">Brussels</option>
+              {cities}
             </select>
           </div>
           <div className="col-md-6 p-2">
