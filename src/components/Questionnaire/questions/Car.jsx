@@ -1,13 +1,33 @@
 import React from "react";
+import { useState } from "react";
+import Alert from "./Alert";
 
 const Car = ({ toNextTab, toPrevTab }) => {
+  const [alert, setAlert] = useState(true);
+
+  const carForm = (e) => {
+    e.preventDefault();
+    setAlert(false);
+  };
+
+  const hideAlert = (e) => {
+    e.preventDefault();
+    setAlert(true);
+  };
+
   return (
     <div className="card">
       <div className="card-body">
         <h5 className="card-title text-center">
           Car carbon footprint calculator
         </h5>
-        <form className="row justify-content-md-center">
+        <form
+          className="row justify-content-md-center"
+          onSubmit={(e) => {
+            carForm(e);
+          }}
+        >
+          <Alert alert={alert} hideAlert={hideAlert}></Alert>
           <div className="col-12 py-2">
             <span>You can enter details for cars</span>
           </div>

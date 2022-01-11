@@ -1,13 +1,32 @@
 import React from "react";
+import { useState } from "react";
+import Alert from "./Alert";
 
 const House = ({ toNextTab, toPrevTab }) => {
+  const [alert, setAlert] = useState(true);
+
+  const houseForm = (e) => {
+    e.preventDefault();
+    setAlert(false);
+  };
+
+  const hideAlert = (e) => {
+    e.preventDefault();
+    setAlert(true);
+  };
+
   return (
     <div className="card">
       <div className="card-body">
         <h5 className="card-title text-center">
           Household carbon footprint calculator
         </h5>
-        <form>
+        <form
+          onSubmit={(e) => {
+            houseForm(e);
+          }}
+        >
+          <Alert alert={alert} hideAlert={hideAlert}></Alert>
           <div className="col-12 py-1">
             <span>
               Enter your consumption of each type of energy, and press the

@@ -1,13 +1,33 @@
 import React from "react";
+import { useState } from "react";
+import Alert from "./Alert";
 
 const Flights = ({ toNextTab, toPrevTab }) => {
+  const [alert, setAlert] = useState(true);
+
+  const flightsForm = (e) => {
+    e.preventDefault();
+    setAlert(false);
+  };
+
+  const hideAlert = (e) => {
+    e.preventDefault();
+    setAlert(true);
+  };
+
   return (
     <div className="card">
       <div className="card-body">
         <h5 className="card-title text-center">
           Flight carbon footprint calculator
         </h5>
-        <form className="row justify-content-md-center">
+        <form
+          className="row justify-content-md-center"
+          onSubmit={(e) => {
+            flightsForm(e);
+          }}
+        >
+          <Alert alert={alert} hideAlert={hideAlert}></Alert>
           <div className="col-md-12 py-2">
             <span>
               You can enter details for flight itineraries. Please tell us what
@@ -41,7 +61,7 @@ const Flights = ({ toNextTab, toPrevTab }) => {
           </div>
           <div className="col-md-3 py-2">
             <label className="form-label">Number of Trips:</label>
-            <input type="number" className="form-control" />
+            <input type="number" className="form-control" required/>
           </div>
           <div className="col-md-12 py-2">
             <div className="form-check">
@@ -53,10 +73,7 @@ const Flights = ({ toNextTab, toPrevTab }) => {
           </div>
           <div className="col-12 py-2">
             <div className="d-flex justify-content-between">
-              <button
-                onClick={(e) => toPrevTab(e)}
-                className="btn btn-primary"
-              >
+              <button onClick={(e) => toPrevTab(e)} className="btn btn-primary">
                 House
               </button>
               <button type="submit" className="btn btn-success mx-1">
