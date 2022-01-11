@@ -1,6 +1,6 @@
 import React from "react";
 
-const Welcome = ({ toNextTab }) => {
+const Welcome = ({ toNextTab, handleCountry }) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -12,7 +12,14 @@ const Welcome = ({ toNextTab }) => {
             <label className="form-label">
               First, please tell us where do you live?
             </label>
-            <select className="form-select" defaultValue="0" required>
+            <select
+              className="form-select"
+              onChange={(e) => {
+                handleCountry(e.target.value);
+              }}
+              defaultValue="0"
+              required
+            >
               <option disabled value="0">
                 Choose...
               </option>

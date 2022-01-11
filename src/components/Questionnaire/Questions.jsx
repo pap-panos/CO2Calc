@@ -14,6 +14,7 @@ import Results from "./results/Results";
 const Questions = () => {
   const [activeTab, setActiveTab] = useState("welcome");
   const [cityRes, setCityRes] = useState(4);
+  const [countryRes, setCountryRes] = useState(4);
 
   const handleCity = (e) => {
     if (e === "1") {
@@ -22,6 +23,16 @@ const Questions = () => {
       setCityRes(58);
     } else {
       setCityRes(48);
+    }
+  };
+
+  const handleCountry = (e) => {
+    if (e === "1") {
+      setCountryRes(60);
+    } else if (e === "2") {
+      setCountryRes(50);
+    } else {
+      setCountryRes(40);
     }
   };
 
@@ -91,7 +102,10 @@ const Questions = () => {
         onSelect={(e) => setActiveTab(e)}
       >
         <Tab title="Welcome" eventKey="welcome" id="welcome-tab">
-          <Welcome toNextTab={toNextTab}></Welcome>
+          <Welcome
+            toNextTab={toNextTab}
+            handleCountry={handleCountry}
+          ></Welcome>
         </Tab>
         <Tab title="Demographic" eventKey="demographic" id="demographic-tab">
           <Demographic
@@ -116,7 +130,11 @@ const Questions = () => {
           <BusRail toPrevTab={toPrevTab} toNextTab={toNextTab}></BusRail>
         </Tab>
         <Tab title="Results" eventKey="results" id="results-tab">
-          <Results toPrevTab={toPrevTab} cityRes={cityRes}></Results>
+          <Results
+            toPrevTab={toPrevTab}
+            countryRes={countryRes}
+            cityRes={cityRes}
+          ></Results>
         </Tab>
       </Tabs>
     </div>
