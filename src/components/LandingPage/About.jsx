@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import aboutPic from "./assets/about-us.png";
+import aboutPic from "./assets/Small COMPAIR Logo PNG.png";
 
 const About = () => {
   return (

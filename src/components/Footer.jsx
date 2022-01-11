@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import compair from "./assets/Large COMPAIR logo PNG.png";
 
 const Footer = () => {
   return (
@@ -9,8 +10,12 @@ const Footer = () => {
           <div className="row">
             <div className="col-4">
               <h4>CO2 Footprint Calculator</h4>
+              <img
+                src={compair}
+                class="rounded img-fluid float-start"
+                alt="..."
+              ></img>
             </div>
-
             <div className="col-2">
               <h5>Our work</h5>
               <ul className="nav flex-column">
@@ -29,7 +34,6 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-
             <div className="col-2">
               <h5>Join us</h5>
               <ul className="nav flex-column">

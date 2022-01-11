@@ -1,11 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import compair from "./assets/Large COMPAIR logo PNG.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <div className="container-fluid">
-        <NavLink to="/" className="navbar-brand mb-0 h1">
+        <NavLink to="/" className="navbar-brand h1 p-0 m-0">
+          <img
+            src={compair}
+            alt=""
+            width="100"
+            height="28"
+            className="d-inline-block align-text-bottom"
+          />
           CO2 Calculator
         </NavLink>
         <button
@@ -20,7 +28,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav me-auto mb-2 pt-2 ps-2 mb-lg-0">
             <li className="nav-item">
               <NavLink className="nav-link active" to="/">
                 Home

@@ -7,10 +7,7 @@ const Home = () => {
   return (
     <div>
       <section id="home">
-        <div
-          className="container-fluid bg-primary py-2"
-          style={{ height: "500px" }}
-        >
+        <div className="container-fluid bg-primary" style={{ height: "510px" }}>
           <div className="row justify-content-center">
             <div className="col-md-8 mt-5">
               <h1
