@@ -2,12 +2,17 @@ import React from "react";
 
 const ProgressBar = ({ progress }) => {
   return (
-    <div
-      className="row justify-content-md-center mb-5"
-      style={{ height: "5rem" }}
-    >
+    <div className="row justify-content-md-center" style={{ height: "5rem" }}>
       <div
-        className="col-md-10 d-flex align-items-center justify-content-center bg-white rounded"
+        className="col-lg-2 d-flex align-items-center justify-content-center"
+        style={{ height: "4rem" }}
+      >
+        <span className="bg-white p-3 rounded" style={{ color: "#dc3545" }}>
+          CO2 Reduction
+        </span>
+      </div>
+      <div
+        className="col-md-8 d-flex align-items-center justify-content-center bg-white rounded"
         style={{ height: "4rem" }}
       >
         <div className="progress w-100 h-75">
@@ -20,12 +25,12 @@ const ProgressBar = ({ progress }) => {
             role="progressbar"
             style={{ width: progress + "%" }}
           >
-            {progress}% CO2 Reduction
+            {progress}%
           </div>
         </div>
       </div>
       <div
-        className="col-lg-2 d-flex align-items-center justify-content-center"
+        className="col-lg-2 d-flex align-items-center justify-content-center mb-5 mb-lg-0 pb-5 pb-lg-0 pt-4 pt-lg-0"
         style={{ height: "4rem" }}
       >
         <button

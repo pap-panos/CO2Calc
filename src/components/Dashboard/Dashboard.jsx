@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [totalData, setTotalData] = useState([515, 510, 535, 575]);
   const [fuelData, setFuelData] = useState([505, 500, 525, 565]);
   const [airData, setAirData] = useState([100, 60, 60]);
-  const [progress, setProgress] = useState(5);
+  const [progress, setProgress] = useState(4);
   const [prev, setPrev] = useState(1);
 
   const handleChart = (c) => {
@@ -114,10 +114,10 @@ const Dashboard = () => {
       <ProgressBar progress={progress}></ProgressBar>
       <ModalAnswers></ModalAnswers>
       <div className="row justify-content-md-center">
-        <div className="col-md-auto p-0 rounded">
+        <div className="col-md-auto p-0 rounded mt-5 mt-lg-0 pt-5 pt-lg-0">
           <Sidebar></Sidebar>
         </div>
-        <div className="col-md-8 px-1 pb-1 rounded">
+        <div className="col-md-8 px-1 pb-1 rounded mt-0 mt-md-5 mt-lg-0 pt-md-5 pt-0 pt-lg-0">
           <ChartContent
             totalData={totalData}
             fuelData={fuelData}
