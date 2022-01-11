@@ -13,6 +13,17 @@ import Results from "./results/Results";
 
 const Questions = () => {
   const [activeTab, setActiveTab] = useState("welcome");
+  const [cityRes, setCityRes] = useState(4);
+
+  const handleCity = (e) => {
+    if (e === "1") {
+      setCityRes(68);
+    } else if (e === "2") {
+      setCityRes(58);
+    } else {
+      setCityRes(48);
+    }
+  };
 
   function nextTabChange() {
     if (activeTab === "welcome") {
@@ -86,6 +97,7 @@ const Questions = () => {
           <Demographic
             toNextTab={toNextTab}
             toPrevTab={toPrevTab}
+            handleCity={handleCity}
           ></Demographic>
         </Tab>
         <Tab title="House" eventKey="house" id="house-tab">
@@ -104,7 +116,7 @@ const Questions = () => {
           <BusRail toPrevTab={toPrevTab} toNextTab={toNextTab}></BusRail>
         </Tab>
         <Tab title="Results" eventKey="results" id="results-tab">
-          <Results toPrevTab={toPrevTab}></Results>
+          <Results toPrevTab={toPrevTab} cityRes={cityRes}></Results>
         </Tab>
       </Tabs>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoePrints } from "@fortawesome/free-solid-svg-icons";
 
-const City = () => {
+const City = ({ cityRes }) => {
   return (
     <div>
       <div className="d-flex justify-content-center p-1">
@@ -19,8 +19,8 @@ const City = () => {
         <div
           className="progress-bar bg-success"
           role="progressbar"
-          style={{ width: "25%" }}
-          aria-valuenow="25"
+          style={{ width: cityRes + "%" }}
+          aria-valuenow={cityRes}
           aria-valuemin="0"
           aria-valuemax="100"
         ></div>

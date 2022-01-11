@@ -1,6 +1,6 @@
 import React from "react";
 
-const Demographic = ({ toNextTab, toPrevTab }) => {
+const Demographic = ({ toNextTab, toPrevTab, handleCity }) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -8,7 +8,14 @@ const Demographic = ({ toNextTab, toPrevTab }) => {
         <form className="row">
           <div className="col-md-6 p-2">
             <label className="form-label">In which city do you live?</label>
-            <select className="form-select" defaultValue="0" required>
+            <select
+              className="form-select"
+              defaultValue="0"
+              onChange={(e) => {
+                handleCity(e.target.value);
+              }}
+              required
+            >
               <option disabled value="0">
                 Choose...
               </option>

@@ -12,7 +12,10 @@ const Welcome = ({ toNextTab }) => {
             <label className="form-label">
               First, please tell us where do you live?
             </label>
-            <select className="form-select" defaultValue="1" required>
+            <select className="form-select" defaultValue="0" required>
+              <option disabled value="0">
+                Choose...
+              </option>
               <option value="1">Greece</option>
               <option value="2">Belgium</option>
               <option value="3">Germany</option>
@@ -47,10 +50,7 @@ const Welcome = ({ toNextTab }) => {
           </div>
           <div className="col py-2">
             <div className="d-flex justify-content-end">
-              <button
-                onClick={(e) => toNextTab(e)}
-                className="btn btn-primary"
-              >
+              <button onClick={(e) => toNextTab(e)} className="btn btn-primary">
                 Demographic
               </button>
             </div>
