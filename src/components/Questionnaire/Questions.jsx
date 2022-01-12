@@ -17,13 +17,28 @@ const Questions = () => {
   const [cityRes, setCityRes] = useState(4);
   const [countryRes, setCountryRes] = useState(4);
   const [userRes, setUserRes] = useState(4);
-  // const [car, setCar] = useState(0);
+  const [car, setCar] = useState(0);
+  const [motorbike, setMotorbike] = useState(0);
 
   const handleCarRes = (mileage, age, efficiency) => {
     let total = Math.round(
       mileage / 50000 + 20 / parseInt(age) + efficiency * 0.5
     );
-    // console.log(total);
+    setCar(total);
+    if (motorbike !== 0) {
+      total += motorbike;
+    }
+    setUserRes(total);
+  };
+
+  const handleMotorbikeRes = (mileage, age, efficiency) => {
+    let total = Math.round(
+      mileage / 50000 + 20 / parseInt(age) + efficiency * 0.5
+    );
+    setMotorbike(total);
+    if (car !== 0) {
+      total += car;
+    }
     setUserRes(total);
   };
 
@@ -152,7 +167,11 @@ const Questions = () => {
           ></Car>
         </Tab>
         <Tab title="Motorbike" eventKey="motorbike" id="motorbike-tab">
-          <Motorbike toNextTab={toNextTab} toPrevTab={toPrevTab}></Motorbike>
+          <Motorbike
+            toNextTab={toNextTab}
+            toPrevTab={toPrevTab}
+            handleMotorbikeRes={handleMotorbikeRes}
+          ></Motorbike>
         </Tab>
         <Tab title="Bus & Rail" eventKey="bus&rail" id="bus&rail-tab">
           <BusRail toPrevTab={toPrevTab} toNextTab={toNextTab}></BusRail>
