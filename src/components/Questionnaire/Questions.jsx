@@ -16,6 +16,16 @@ const Questions = () => {
   const [cities, setCities] = useState();
   const [cityRes, setCityRes] = useState(4);
   const [countryRes, setCountryRes] = useState(4);
+  const [userRes, setUserRes] = useState(4);
+  // const [car, setCar] = useState(0);
+
+  const handleCarRes = (mileage, age, efficiency) => {
+    let total = Math.round(
+      mileage / 50000 + 20 / parseInt(age) + efficiency * 0.5
+    );
+    // console.log(total);
+    setUserRes(total);
+  };
 
   const handleCity = (e) => {
     if (e === "1") {
@@ -135,7 +145,11 @@ const Questions = () => {
           <Flights toNextTab={toNextTab} toPrevTab={toPrevTab}></Flights>
         </Tab>
         <Tab title="Car" eventKey="car" id="car-tab">
-          <Car toNextTab={toNextTab} toPrevTab={toPrevTab}></Car>
+          <Car
+            toNextTab={toNextTab}
+            toPrevTab={toPrevTab}
+            handleCarRes={handleCarRes}
+          ></Car>
         </Tab>
         <Tab title="Motorbike" eventKey="motorbike" id="motorbike-tab">
           <Motorbike toNextTab={toNextTab} toPrevTab={toPrevTab}></Motorbike>
@@ -148,6 +162,7 @@ const Questions = () => {
             toPrevTab={toPrevTab}
             countryRes={countryRes}
             cityRes={cityRes}
+            userRes={userRes}
           ></Results>
         </Tab>
       </Tabs>

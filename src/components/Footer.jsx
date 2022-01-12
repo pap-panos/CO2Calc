@@ -12,7 +12,7 @@ const Footer = () => {
               <h4>CO2 Footprint Calculator</h4>
               <img
                 src={compair}
-                class="rounded img-fluid float-start"
+                className="rounded img-fluid float-start"
                 alt="..."
               ></img>
             </div>

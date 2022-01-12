@@ -4,7 +4,7 @@ import City from "./City";
 import Country from "./Country";
 import World from "./World";
 
-const Results = ({ toPrevTab, cityRes, countryRes }) => {
+const Results = ({ toPrevTab, cityRes, countryRes, userRes }) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -13,7 +13,7 @@ const Results = ({ toPrevTab, cityRes, countryRes }) => {
         </h5>
         <div className="row py-2">
           <div className="col-md-6 p-2">
-            <User></User>
+            <User userRes={userRes}></User>
           </div>
           <div className="col-md-6 p-2">
             <City cityRes={cityRes}></City>

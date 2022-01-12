@@ -2,17 +2,41 @@ import React from "react";
 import { useState } from "react";
 import Alert from "./Alert";
 
-const Car = ({ toNextTab, toPrevTab }) => {
+const Car = ({ toNextTab, toPrevTab, handleCarRes }) => {
   const [alert, setAlert] = useState(true);
+  const [mileage, setMileage] = useState(0);
+  const [age, setAge] = useState("2");
+  const [efficiency, setEfficiency] = useState(3.5);
 
   const carForm = (e) => {
     e.preventDefault();
+    handleCarRes(mileage, age, efficiency);
     setAlert(false);
   };
 
   const hideAlert = (e) => {
     e.preventDefault();
     setAlert(true);
+  };
+
+  const handleMileage = (e) => {
+    if (e < 0) {
+      setMileage(0);
+    } else if (e > 300000) {
+      setMileage(300000);
+    } else {
+      setMileage(e);
+    }
+  };
+
+  const handleEfficiency = (e) => {
+    if (e < 3.5) {
+      setEfficiency(3.5);
+    } else if (e > 10) {
+      setEfficiency(10);
+    } else {
+      setEfficiency(e);
+    }
   };
 
   return (
@@ -34,7 +58,15 @@ const Car = ({ toNextTab, toPrevTab }) => {
           <div className="col-md-4 py-2">
             <label className="form-label">Mileage:</label>
             <div className="input-group">
-              <input type="number" className="form-control" required />
+              <input
+                type="number"
+                className="form-control"
+                value={mileage}
+                onChange={(e) => {
+                  handleMileage(e.target.value);
+                }}
+                required
+              />
               <select className="form-select" defaultValue="1" required>
                 <option value="1">KM</option>
                 <option value="2">Miles</option>
@@ -43,7 +75,14 @@ const Car = ({ toNextTab, toPrevTab }) => {
           </div>
           <div className="col-md-4 py-2">
             <label className="form-label">Car Age:</label>
-            <select className="form-select" defaultValue="2" required>
+            <select
+              className="form-select"
+              value={age}
+              onChange={(e) => {
+                setAge(e.target.value);
+              }}
+              required
+            >
               <option value="1">1998 or older...</option>
               <option value="2">1999 - 2009</option>
               <option value="3">2009 - 2019</option>
@@ -53,7 +92,15 @@ const Car = ({ toNextTab, toPrevTab }) => {
           <div className="col-md-6 py-2">
             <label className="form-label">Enter efficiency:</label>
             <div className="input-group">
-              <input type="number" className="form-control" required />
+              <input
+                type="number"
+                className="form-control"
+                value={efficiency}
+                onChange={(e) => {
+                  handleEfficiency(e.target.value);
+                }}
+                required
+              />
               <select className="form-select" defaultValue="1" required>
                 <option value="1">L/100km</option>
                 <option value="2">g/km</option>
