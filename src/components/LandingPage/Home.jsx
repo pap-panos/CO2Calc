@@ -7,16 +7,16 @@ const Home = () => {
   return (
     <div>
       <section id="home">
-        <div className="container-fluid bg-primary" style={{ height: "510px" }}>
+        <div className="container-fluid bg-primary p-2">
           <div className="row justify-content-center">
-            <div className="col-md-8 mt-5">
+            <div className="col-md-8">
               <h1
-                className="display-4 fw-bolder mb-4
-                 text-center text-white"
+                className="display-4 fw-bolder
+                 text-center text-white p-2"
               >
                 CARBON CALCULATOR
               </h1>
-              <p className="lead text-center text-white fs-4 mb-5">
+              <p className="lead text-center text-white fs-4 p-2">
                 Carbon Footprint Calculator For Individuals. This carbon
                 calculator is provided free to use. Show you care for the
                 environment and communities across the World by Carbon
@@ -25,10 +25,10 @@ const Home = () => {
                 your part to shape the agenda for environmental and carbon
                 management!
               </p>
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center p-2">
                 <NavLink
                   to="/register"
-                  className="btn btn-light rounded-pill px-4 py-2"
+                  className="btn btn-light rounded-pill p-2"
                 >
                   Get Started
                 </NavLink>
