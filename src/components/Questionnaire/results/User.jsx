@@ -17,7 +17,7 @@ const User = ({ userRes }) => {
       </div>
       <div className="progress" style={{ height: "20px" }}>
         <div
-          className="progress-bar"
+          className="progress-bar progress-bar-striped"
           role="progressbar"
           style={{ width: userRes + "%" }}
           aria-valuenow={userRes}

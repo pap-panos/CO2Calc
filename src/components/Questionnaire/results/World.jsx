@@ -17,7 +17,7 @@ const World = () => {
       </div>
       <div className="progress" style={{ height: "20px" }}>
         <div
-          className="progress-bar bg-dark"
+          className="progress-bar progress-bar-striped bg-dark"
           role="progressbar"
           style={{ width: "50%" }}
           aria-valuenow="50"
