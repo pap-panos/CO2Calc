@@ -14,9 +14,8 @@ import Results from "./results/Results";
 const Questions = () => {
   const [activeTab, setActiveTab] = useState("welcome");
   const [cities, setCities] = useState();
-  const [cityRes, setCityRes] = useState(4);
-  const [countryRes, setCountryRes] = useState(4);
-  const [userRes, setUserRes] = useState(4);
+  const [cityRes, setCityRes] = useState(0);
+  const [countryRes, setCountryRes] = useState(0);
   const [car, setCar] = useState(0);
   const [motorbike, setMotorbike] = useState(0);
 
@@ -25,10 +24,6 @@ const Questions = () => {
       mileage / 50000 + 20 / parseInt(age) + efficiency * 0.5
     );
     setCar(total);
-    if (motorbike !== 0) {
-      total += motorbike;
-    }
-    setUserRes(total);
   };
 
   const handleMotorbikeRes = (mileage, age, efficiency) => {
@@ -36,10 +31,6 @@ const Questions = () => {
       mileage / 50000 + 20 / parseInt(age) + efficiency * 0.5
     );
     setMotorbike(total);
-    if (car !== 0) {
-      total += car;
-    }
-    setUserRes(total);
   };
 
   const handleCity = (e) => {
@@ -181,7 +172,8 @@ const Questions = () => {
             toPrevTab={toPrevTab}
             countryRes={countryRes}
             cityRes={cityRes}
-            userRes={userRes}
+            car={car}
+            motorbike={motorbike}
           ></Results>
         </Tab>
       </Tabs>
