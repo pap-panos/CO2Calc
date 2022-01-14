@@ -23,9 +23,10 @@ const Welcome = ({ toNextTab, handleCountry }) => {
               <option disabled value="0">
                 Choose...
               </option>
-              <option value="1">Greece</option>
-              <option value="2">Belgium</option>
-              <option value="3">Germany</option>
+              <option value="Greece">Greece</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Germany">Germany</option>
+              <option value="Bulgaria">Bulgaria</option>
             </select>
           </div>
           <div className="col py-2">

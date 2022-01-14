@@ -17,6 +17,8 @@ const Questions = () => {
   const [cityRes, setCityRes] = useState(0);
   const [countryRes, setCountryRes] = useState(0);
   const [car, setCar] = useState(0);
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
   const [motorbike, setMotorbike] = useState(0);
 
   const handleCarRes = (mileage, age, efficiency) => {
@@ -34,34 +36,62 @@ const Questions = () => {
   };
 
   const handleCity = (e) => {
-    if (e === "1") {
-      setCityRes(68);
-    } else if (e === "2") {
-      setCityRes(58);
-    } else {
-      setCityRes(48);
+    setCity(e);
+    switch (e) {
+      case "Athens":
+        setCityRes(68);
+        break;
+      case "Brussels":
+        setCityRes(58);
+        break;
+      case "Berlin":
+        setCityRes(48);
+        break;
+      case "Sofia":
+        setCityRes(68);
+        break;
+      default:
+        break;
     }
   };
 
   const handleCountry = (e) => {
-    if (e === "1") {
-      setCountryRes(60);
-      if (cityRes !== 4) {
-        setCityRes(68);
-      }
-      setCities(<option value="1">Athens</option>);
-    } else if (e === "2") {
-      setCountryRes(50);
-      if (cityRes !== 4) {
-        setCityRes(58);
-      }
-      setCities(<option value="2">Brussels</option>);
-    } else {
-      setCountryRes(40);
-      if (cityRes !== 4) {
-        setCityRes(48);
-      }
-      setCities(<option value="3">Berlin</option>);
+    setCountry(e);
+    switch (e) {
+      case "Greece":
+        setCountryRes(60);
+        if (cityRes > 0) {
+          setCity("Athens");
+          setCityRes(68);
+        }
+        setCities(<option value="Athens">Athens</option>);
+        break;
+      case "Belgium":
+        setCountryRes(50);
+        if (cityRes > 0) {
+          setCity("Brussels");
+          setCityRes(58);
+        }
+        setCities(<option value="Brussels">Brussels</option>);
+        break;
+      case "Germany":
+        setCountryRes(40);
+        if (cityRes > 0) {
+          setCity("Berlin");
+          setCityRes(48);
+        }
+        setCities(<option value="Berlin">Berlin</option>);
+        break;
+      case "Bulgaria":
+        setCountryRes(60);
+        if (cityRes > 0) {
+          setCity("Sofia");
+          setCityRes(68);
+        }
+        setCities(<option value="Sofia">Sofia</option>);
+        break;
+      default:
+        break;
     }
   };
 
@@ -174,6 +204,8 @@ const Questions = () => {
             cityRes={cityRes}
             car={car}
             motorbike={motorbike}
+            city={city}
+            country={country}
           ></Results>
         </Tab>
       </Tabs>
