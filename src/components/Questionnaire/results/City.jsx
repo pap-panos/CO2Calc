@@ -17,7 +17,7 @@ const City = ({ cityRes, city }) => {
       </div>
       <div className="progress" style={{ height: "20px" }}>
         <div
-          className="progress-bar bg-success"
+          className="progress-bar bg-success text-wrap"
           role="progressbar"
           style={{ width: cityRes + "%" }}
           aria-valuenow={cityRes}

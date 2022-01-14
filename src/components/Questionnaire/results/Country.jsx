@@ -17,7 +17,7 @@ const Country = ({ countryRes, country }) => {
       </div>
       <div className="progress" style={{ height: "20px" }}>
         <div
-          className="progress-bar bg-warning"
+          className="progress-bar bg-warning text-wrap"
           role="progressbar"
           style={{ width: countryRes + "%" }}
           aria-valuenow={countryRes}
