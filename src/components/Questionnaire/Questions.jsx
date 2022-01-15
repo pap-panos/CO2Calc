@@ -20,18 +20,21 @@ const Questions = () => {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [motorbike, setMotorbike] = useState(0);
-  const [date, setDate] = useState(new Date().toLocaleDateString("el-GR"));
+  const [start, setStart] = useState(new Date().toLocaleDateString("el-GR"));
+  let oneYear = new Date();
+  oneYear.setFullYear(oneYear.getFullYear() + 1);
+  const [end, setEnd] = useState(oneYear.toLocaleDateString("el-GR"));
 
-  const handleCarRes = (mileage, age, efficiency) => {
+  const handleCarRes = (distance, age, efficiency) => {
     let total = Math.round(
-      mileage / 50000 + 20 / parseInt(age) + efficiency * 0.5
+      distance / 2500 + 20 / parseInt(age) + efficiency * 0.5
     );
     setCar(total);
   };
 
-  const handleMotorbikeRes = (mileage, age, efficiency) => {
+  const handleMotorbikeRes = (distance, age, efficiency) => {
     let total = Math.round(
-      mileage / 50000 + 20 / parseInt(age) + efficiency * 0.5
+      distance / 2500 + 20 / parseInt(age) + efficiency * 0.5
     );
     setMotorbike(total);
   };
@@ -186,7 +189,8 @@ const Questions = () => {
             toNextTab={toNextTab}
             toPrevTab={toPrevTab}
             handleCarRes={handleCarRes}
-            date={date}
+            start={start}
+            end={end}
           ></Car>
         </Tab>
         <Tab title="Motorbike" eventKey="motorbike" id="motorbike-tab">
@@ -194,6 +198,8 @@ const Questions = () => {
             toNextTab={toNextTab}
             toPrevTab={toPrevTab}
             handleMotorbikeRes={handleMotorbikeRes}
+            start={start}
+            end={end}
           ></Motorbike>
         </Tab>
         <Tab title="Bus & Rail" eventKey="bus&rail" id="bus&rail-tab">

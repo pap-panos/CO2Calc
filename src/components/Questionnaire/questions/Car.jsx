@@ -2,15 +2,15 @@ import React from "react";
 import { useState } from "react";
 import Alert from "./Alert";
 
-const Car = ({ toNextTab, toPrevTab, handleCarRes, date }) => {
+const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end }) => {
   const [alert, setAlert] = useState(true);
-  const [mileage, setMileage] = useState(0);
+  const [distance, setDistance] = useState(0);
   const [age, setAge] = useState("2");
   const [efficiency, setEfficiency] = useState(3.5);
 
   const carForm = (e) => {
     e.preventDefault();
-    handleCarRes(mileage, age, efficiency);
+    handleCarRes(distance, age, efficiency);
     setAlert(false);
   };
 
@@ -19,13 +19,13 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, date }) => {
     setAlert(true);
   };
 
-  const handleMileage = (e) => {
+  const handleDistance = (e) => {
     if (e < 0) {
-      setMileage(0);
-    } else if (e > 300000) {
-      setMileage(300000);
+      setDistance(0);
+    } else if (e > 50000) {
+      setDistance(50000);
     } else {
-      setMileage(e);
+      setDistance(e);
     }
   };
 
@@ -62,14 +62,14 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, date }) => {
               <input
                 type="text"
                 className="form-control bg-white"
-                value={date}
+                value={start}
                 disabled
               />
               <span className="input-group-text">To</span>
               <input
                 type="text"
                 className="form-control bg-white"
-                value={date}
+                value={end}
                 disabled
               />
             </div>
@@ -80,9 +80,9 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, date }) => {
               <input
                 type="number"
                 className="form-control"
-                value={mileage}
+                value={distance}
                 onChange={(e) => {
-                  handleMileage(e.target.value);
+                  handleDistance(e.target.value);
                 }}
                 required
               />

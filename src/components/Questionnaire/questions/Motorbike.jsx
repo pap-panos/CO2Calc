@@ -2,25 +2,31 @@ import React from "react";
 import { useState } from "react";
 import Alert from "./Alert";
 
-const Motorbike = ({ toNextTab, toPrevTab, handleMotorbikeRes }) => {
+const Motorbike = ({
+  toNextTab,
+  toPrevTab,
+  handleMotorbikeRes,
+  start,
+  end,
+}) => {
   const [alert, setAlert] = useState(true);
-  const [mileage, setMileage] = useState(0);
+  const [distance, setDistance] = useState(0);
   const [age, setAge] = useState("2");
   const [efficiency, setEfficiency] = useState(3.5);
 
   const motorbikeForm = (e) => {
     e.preventDefault();
-    handleMotorbikeRes(mileage, age, efficiency);
+    handleMotorbikeRes(distance, age, efficiency);
     setAlert(false);
   };
 
-  const handleMileage = (e) => {
+  const handleDistance = (e) => {
     if (e < 0) {
-      setMileage(0);
-    } else if (e > 300000) {
-      setMileage(300000);
+      setDistance(0);
+    } else if (e > 50000) {
+      setDistance(50000);
     } else {
-      setMileage(e);
+      setDistance(e);
     }
   };
 
@@ -53,17 +59,36 @@ const Motorbike = ({ toNextTab, toPrevTab, handleMotorbikeRes }) => {
         >
           <Alert alert={alert} hideAlert={hideAlert}></Alert>
           <div className="col-12 py-2">
-            <span>You can enter details for motorbikes</span>
+            <span>You can enter details for motorbikes:</span>
+          </div>
+          <div className="col-md-6 py-2">
+            <label className="form-label">Can be set from Welcome Tab.</label>
+            <div className="input-group">
+              <span className="input-group-text">From</span>
+              <input
+                type="text"
+                className="form-control bg-white"
+                value={start}
+                disabled
+              />
+              <span className="input-group-text">To</span>
+              <input
+                type="text"
+                className="form-control bg-white"
+                value={end}
+                disabled
+              />
+            </div>
           </div>
           <div className="col-md-4 py-2">
-            <label className="form-label">Mileage:</label>
+            <label className="form-label">Distance travelled:</label>
             <div className="input-group">
               <input
                 type="number"
                 className="form-control"
-                value={mileage}
+                value={distance}
                 onChange={(e) => {
-                  handleMileage(e.target.value);
+                  handleDistance(e.target.value);
                 }}
                 required
               />
