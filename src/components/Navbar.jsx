@@ -35,6 +35,16 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/dashboard">
+                Dashboard
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/questions">
+                Calculate
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/about">
                 About
               </NavLink>
@@ -73,22 +83,9 @@ const Navbar = () => {
                 aria-labelledby="dropdownMenuButton2"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/questions">
-                    Take the survey
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="dropdown-item" to="/dashboard">
-                    Dashboard
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink className="dropdown-item" to="/account">
-                    Profile
+                    Account
                   </NavLink>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
                 </li>
                 <li>
                   <button className="dropdown-item" type="button">
