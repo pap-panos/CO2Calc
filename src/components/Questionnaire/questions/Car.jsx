@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Alert from "./Alert";
 
-const Car = ({ toNextTab, toPrevTab, handleCarRes }) => {
+const Car = ({ toNextTab, toPrevTab, handleCarRes, date }) => {
   const [alert, setAlert] = useState(true);
   const [mileage, setMileage] = useState(0);
   const [age, setAge] = useState("2");
@@ -53,10 +53,29 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes }) => {
         >
           <Alert alert={alert} hideAlert={hideAlert}></Alert>
           <div className="col-12 py-2">
-            <span>You can enter details for cars</span>
+            <span>You can enter details for cars:</span>
+          </div>
+          <div className="col-md-6 py-2">
+            <label className="form-label">Can be set from Welcome Tab.</label>
+            <div className="input-group">
+              <span className="input-group-text">From</span>
+              <input
+                type="text"
+                className="form-control bg-white"
+                value={date}
+                disabled
+              />
+              <span className="input-group-text">To</span>
+              <input
+                type="text"
+                className="form-control bg-white"
+                value={date}
+                disabled
+              />
+            </div>
           </div>
           <div className="col-md-4 py-2">
-            <label className="form-label">Mileage:</label>
+            <label className="form-label">Distance travelled:</label>
             <div className="input-group">
               <input
                 type="number"

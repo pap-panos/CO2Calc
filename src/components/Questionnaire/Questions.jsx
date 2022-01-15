@@ -20,6 +20,7 @@ const Questions = () => {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [motorbike, setMotorbike] = useState(0);
+  const [date, setDate] = useState(new Date().toLocaleDateString("el-GR"));
 
   const handleCarRes = (mileage, age, efficiency) => {
     let total = Math.round(
@@ -185,6 +186,7 @@ const Questions = () => {
             toNextTab={toNextTab}
             toPrevTab={toPrevTab}
             handleCarRes={handleCarRes}
+            date={date}
           ></Car>
         </Tab>
         <Tab title="Motorbike" eventKey="motorbike" id="motorbike-tab">
