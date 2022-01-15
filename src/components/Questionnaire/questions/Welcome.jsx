@@ -7,7 +7,7 @@ const Welcome = ({ toNextTab, handleCountry }) => {
         <h5 className="card-title text-center">
           Welcome to the web's leading carbon footprint calculator
         </h5>
-        <form>
+        <div>
           <div className="col-md-4 py-2">
             <label className="form-label">
               First, please tell us where do you live?
@@ -18,7 +18,6 @@ const Welcome = ({ toNextTab, handleCountry }) => {
                 handleCountry(e.target.value);
               }}
               defaultValue="0"
-              required
             >
               <option disabled value="0">
                 Choose...
@@ -29,7 +28,7 @@ const Welcome = ({ toNextTab, handleCountry }) => {
               <option value="Bulgaria">Bulgaria</option>
             </select>
           </div>
-          <div className="col py-2">
+          <div className="col-12 py-2">
             <span>
               Carbon footprint calculations are typically based on annual
               emissions from the previous 12 months.If you would like to
@@ -37,17 +36,17 @@ const Welcome = ({ toNextTab, handleCountry }) => {
               calendar boxes below:
             </span>
           </div>
-          <div className="row py-2">
+          <div className="row">
             <div className="col-md-3">
               <label className="form-label">From</label>
-              <input type="date" className="form-control" required />
+              <input type="date" className="form-control" />
             </div>
-            <div className="col-md-3">
+            <div className="col-md-3 py-2 py-md-0">
               <label className="form-label">To</label>
-              <input type="date" className="form-control" required />
+              <input type="date" className="form-control" />
             </div>
           </div>
-          <div className="col py-2">
+          <div className="col-12 py-2">
             <span>
               Next, select the appropriate tab above to calculate the part of
               your lifestyle you are most interested in, e.g. your flights.Or,
@@ -56,14 +55,14 @@ const Welcome = ({ toNextTab, handleCountry }) => {
               your emissions through one of our climate-friendly projects.
             </span>
           </div>
-          <div className="col py-2">
+          <div className="col-12 py-2">
             <div className="d-flex justify-content-end">
               <button onClick={(e) => toNextTab(e)} className="btn btn-primary">
                 Demographic
               </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
