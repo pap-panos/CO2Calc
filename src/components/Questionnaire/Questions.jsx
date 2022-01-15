@@ -25,6 +25,14 @@ const Questions = () => {
   oneYear.setFullYear(oneYear.getFullYear() + 1);
   const [end, setEnd] = useState(oneYear.toLocaleDateString("el-GR"));
 
+  const handleStartDate = (e) => {
+    setStart(new Date(e).toLocaleDateString("el-GR"));
+  };
+
+  const handleEndDate = (e) => {
+    setEnd(new Date(e).toLocaleDateString("el-GR"));
+  };
+
   const handleCarRes = (distance, age, efficiency) => {
     let total = Math.round(
       distance / 2500 + 20 / parseInt(age) + efficiency * 0.5
@@ -168,6 +176,8 @@ const Questions = () => {
           <Welcome
             toNextTab={toNextTab}
             handleCountry={handleCountry}
+            handleStartDate={handleStartDate}
+            handleEndDate={handleEndDate}
           ></Welcome>
         </Tab>
         <Tab title="Demographic" eventKey="demographic" id="demographic-tab">

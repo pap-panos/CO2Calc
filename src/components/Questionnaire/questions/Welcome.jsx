@@ -1,6 +1,11 @@
 import React from "react";
 
-const Welcome = ({ toNextTab, handleCountry }) => {
+const Welcome = ({
+  toNextTab,
+  handleCountry,
+  handleStartDate,
+  handleEndDate,
+}) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -39,11 +44,23 @@ const Welcome = ({ toNextTab, handleCountry }) => {
           <div className="row">
             <div className="col-md-3">
               <label className="form-label">From</label>
-              <input type="date" className="form-control" />
+              <input
+                type="date"
+                className="form-control"
+                onChange={(e) => {
+                  handleStartDate(e.target.value);
+                }}
+              />
             </div>
             <div className="col-md-3 py-2 py-md-0">
               <label className="form-label">To</label>
-              <input type="date" className="form-control" />
+              <input
+                type="date"
+                className="form-control"
+                onChange={(e) => {
+                  handleEndDate(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="col-12 py-2">
