@@ -5,12 +5,12 @@ const mongoose = require("mongoose");
 // User Schema Or Document Structure
 const userSchema = new mongoose.Schema(
   {
-    username: {
+    email: {
       type: String,
       // required: true,
       // unique: true,
     },
-    email: {
+    username: {
       type: String,
       // required: true,
       // unique: true,
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     //   },
     // ],
   },
-  { collection: "Users" }
+  { collection: "users" }
 );
 
 // Hashing Password to Secure
