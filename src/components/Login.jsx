@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 const Login = () => {
   return (
     <div>
-      <h1>Henlo World</h1>
       <div className="container rounded bg-white my-3">
         <div className="row">
           <div className="col-lg-6 d-flex flex-column align-items-center text-white justify-content-center bg-primary rounded-start p-3">
@@ -19,7 +18,7 @@ const Login = () => {
             </NavLink>
           </div>
           <div className="col-lg-6 p-5">
-            <h1 className="display-6 fw-bolder mb-5">LOGIN</h1>
+            <h1 className="display-6 fw-bolder mb-3 text-center">LOGIN</h1>
             <form>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">

@@ -6,7 +6,8 @@ const Register = () => {
     <div>
       <div className="container rounded bg-white my-3">
         <div className="row">
-          <div className="col-lg-6 p-5">
+          <div className="col-lg-6 p-3">
+            <h1 className="display-6 fw-bolder mb-1 text-center">REGISTER</h1>
             <form>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
