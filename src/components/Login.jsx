@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 const Login = () => {
   return (
     <div>
+      <h1>Henlo World</h1>
       <div className="container rounded bg-white my-3">
         <div className="row">
           <div className="col-lg-6 d-flex flex-column align-items-center text-white justify-content-center bg-primary rounded-start p-3">
