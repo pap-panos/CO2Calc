@@ -1,9 +1,9 @@
 // Import All Dependencies
 const dotenv = require("dotenv");
 const express = require("express");
-// const bcryptjs = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
-// const cookieParser = require("cookie-parser");
+const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 // Express App
@@ -17,6 +17,7 @@ const port = process.env.PORT;
 // Get Data and Cookies from FrontEnd
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
+app.use(cookieParser());
 app.use(cors());
 
 // Required Routes
