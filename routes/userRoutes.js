@@ -1,4 +1,4 @@
-// Import All Dependencies
+// Import Dependencies
 const express = require("express");
 const router = express.Router();
 
@@ -30,6 +30,33 @@ router.post("/register", async (req, res) => {
     res.status(200).send("Registered");
   } else {
     res.status(400).send("Error NOT registered");
+  }
+});
+
+// Login User
+router.post("/login", async (req, res) => {
+  console.log("Login User");
+
+  // Get body or Data
+  const email = req.body.email;
+  const password = req.body.password;
+
+  //Call function to register user to db
+  const loggedIn = await userServices.loginUser(email, password);
+  //loggedIn is either null or the token value
+
+  //Response send to front end
+  if (loggedIn !== null) {
+    //loggedIn contains the token!
+    res.cookie("jwt", loggedIn, {
+      // Expires Token in 24 Hours
+      expires: new Date(Date.now() + 86400000),
+      httpOnly: true,
+    });
+
+    res.status(200).send("LoggedIn");
+  } else {
+    res.status(400).send("Invalid Credentials");
   }
 });
 

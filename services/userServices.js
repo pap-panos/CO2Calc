@@ -1,3 +1,6 @@
+// Import Dependencies
+const bcryptjs = require("bcryptjs");
+
 // Require Users Model
 const { User } = require("../models/userModel");
 
@@ -29,9 +32,41 @@ async function registerUser(email, username, password) {
     return true;
   } catch (error) {
     //User was not inserted to db
+    console.log(error);
     return false;
   }
 }
 
+// Login User
+async function loginUser(email, password) {
+  try {
+    // Find User if Exist
+    const user = await User.findOne({ email: email });
+
+    if (user) {
+      // Verify Password
+      const isMatch = await bcryptjs.compare(password, user.password);
+
+      if (isMatch) {
+        //User logged in to app successfully
+
+        // Generate Token Which is Define in User Schema
+        const token = await user.generateToken();
+        return token;
+      } else {
+        //User could not login due to password not matching
+
+        return null;
+      }
+    } else {
+      //User could not login due to email not found in db
+      return null;
+    }
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
 // Export Users Services
-module.exports = { getUsers, registerUser };
+module.exports = { getUsers, registerUser, loginUser };
