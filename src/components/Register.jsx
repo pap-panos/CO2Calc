@@ -1,14 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 const Register = () => {
+  //History Declare
+  const history = useNavigate();
+
+  //User Object
+  const [user, setUser] = useState({
+    email: "",
+    username: "",
+    password: "",
+  });
+
+  // Handle Inputs
+  const handleInput = (event) => {
+    let name = event.target.name;
+    let value = event.target.value;
+
+    setUser({ ...user, [name]: value });
+  };
+
+  // Handle Submit
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // Object DeStructuring
+    // Store Object Data into Variables
+    const { email, username, password } = user;
+    await Axios.post("/api/users/register", {
+      email,
+      username,
+      password,
+    }).then(
+      (res) => {
+        console.log(res.status);
+        if (res.status === 400 || !res) {
+          window.alert("Already Used Details");
+        } else {
+          // You need to Restart the Server for Proxy Works
+          // Now Try Again
+          window.alert("Registered Successfully");
+          history("/login");
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
+
   return (
     <div>
       <div className="container rounded bg-white my-3">
         <div className="row">
           <div className="col-lg-6 p-3">
             <h1 className="display-6 fw-bolder mb-1 text-center">REGISTER</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
                   Username
@@ -18,6 +66,8 @@ const Register = () => {
                   className="form-control"
                   id="name"
                   name="username"
+                  value={user.username}
+                  onChange={handleInput}
                   required
                 />
               </div>
@@ -31,6 +81,8 @@ const Register = () => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   name="email"
+                  value={user.email}
+                  onChange={handleInput}
                   required
                 />
                 <div id="emailHelp" className="form-text">
@@ -46,6 +98,8 @@ const Register = () => {
                   className="form-control"
                   id="exampleInputPassword1"
                   name="password"
+                  value={user.password}
+                  onChange={handleInput}
                   required
                 />
               </div>
@@ -54,6 +108,7 @@ const Register = () => {
                   type="checkbox"
                   className="form-check-input"
                   id="exampleCheck1"
+                  required
                 />
                 <label className="form-check-label" htmlFor="exampleCheck1">
                   I Agree to the Terms and Conditions.
