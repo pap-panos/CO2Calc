@@ -88,9 +88,9 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <button className="dropdown-item" type="button">
+                  <NavLink className="dropdown-item" to="/logout">
                     Logout
-                  </button>
+                  </NavLink>
                 </li>
               </ul>
             </div>

@@ -5,6 +5,7 @@ import Contact from "./components/LandingPage/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
+import Logout from "./components/Logout";
 import Register from "./components/Register";
 import Account from "./components/Account";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/questions" element={<Questions />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
       <Footer />
     </div>
