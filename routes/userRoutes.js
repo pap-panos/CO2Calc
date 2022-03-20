@@ -2,9 +2,10 @@
 const express = require("express");
 const router = express.Router();
 
-
 // Require Users Services
 const userServices = require("../services/userServices");
+
+const authenticate = require("../middleware/authenticate");
 
 // Users Requests
 
@@ -60,6 +61,9 @@ router.get("/logout", (req, res) => {
   res.clearCookie("jwt", { path: "/" });
   res.status(200).send("User Logged Out");
 });
+
+// Authentication
+router.get("/auth", authenticate, (req, res) => {});
 
 // Export Users Routes
 module.exports = router;

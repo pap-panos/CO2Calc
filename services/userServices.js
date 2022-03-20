@@ -5,12 +5,6 @@ const bcryptjs = require("bcryptjs");
 const { User } = require("../models/userModel");
 
 // User Services
-// Get All Users
-async function getUsers() {
-  const users = await User.find();
-  console.log(users);
-  return users;
-}
 
 // Register User
 async function registerUser(email, username, password) {
@@ -69,4 +63,4 @@ async function loginUser(email, password) {
 }
 
 // Export Users Services
-module.exports = { getUsers, registerUser, loginUser };
+module.exports = { registerUser, loginUser };
