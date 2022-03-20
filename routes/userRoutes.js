@@ -2,16 +2,11 @@
 const express = require("express");
 const router = express.Router();
 
+
 // Require Users Services
 const userServices = require("../services/userServices");
 
 // Users Requests
-// Get All Users
-router.get("/", async (req, res) => {
-  console.log("Get All Users");
-  const users = await userServices.getUsers();
-  res.send(users);
-});
 
 // Register User
 router.post("/register", async (req, res) => {
@@ -58,6 +53,12 @@ router.post("/login", async (req, res) => {
   } else {
     res.status(400).send("Invalid Credentials");
   }
+});
+
+//Logout User
+router.get("/logout", (req, res) => {
+  res.clearCookie("jwt", { path: "/" });
+  res.status(200).send("User Logged Out");
 });
 
 // Export Users Routes
