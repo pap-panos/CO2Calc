@@ -1,7 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 const Login = () => {
+  //History Declare
+  const history = useNavigate();
+
+  //User Object
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  // Handle Input
+  const handleChange = (event) => {
+    let name = event.target.name;
+    let value = event.target.value;
+
+    setUser({ ...user, [name]: value });
+  };
+
+  // Handle Login
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const { email, password } = user;
+    await Axios.post("/api/users/login", {
+      email,
+      password,
+    }).then(
+      (res) => {
+        console.log(res.status);
+        window.alert("Login Successfully");
+        // window.location.reload();
+        history("/");
+        // Token is generated When we Logged In.
+      },
+      (error) => {
+        window.alert("Invalid Credentials");
+        console.log(error);
+      }
+    );
+  };
+
   return (
     <div>
       <div className="container rounded bg-white my-3">
@@ -19,7 +60,7 @@ const Login = () => {
           </div>
           <div className="col-lg-6 p-5">
             <h1 className="display-6 fw-bolder mb-3 text-center">LOGIN</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
                   e-mail
@@ -30,6 +71,8 @@ const Login = () => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   name="email"
+                  value={user.email}
+                  onChange={handleChange}
                   required
                 />
                 <div id="emailHelp" className="form-text">
@@ -45,6 +88,8 @@ const Login = () => {
                   className="form-control"
                   id="exampleInputPassword1"
                   name="password"
+                  value={user.password}
+                  onChange={handleChange}
                   required
                 />
               </div>

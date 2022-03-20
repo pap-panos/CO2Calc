@@ -35,16 +35,11 @@ const Register = () => {
     }).then(
       (res) => {
         console.log(res.status);
-        if (res.status === 400 || !res) {
-          window.alert("Already Used Details");
-        } else {
-          // You need to Restart the Server for Proxy Works
-          // Now Try Again
-          window.alert("Registered Successfully");
-          history("/login");
-        }
+        window.alert("Registered Successfully");
+        history("/login");
       },
       (error) => {
+        window.alert("Already Used Details");
         console.log(error);
       }
     );
