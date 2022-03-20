@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import compair from "./assets/Large COMPAIR logo PNG.png";
 
-const Navbar = () => {
+const Navbar = ({ auth }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <div className="container-fluid">
@@ -56,44 +56,51 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="d-flex justify-content-end">
-            <NavLink
-              to="/login"
-              className="btn btn-primary ms-auto px-4 rounded-pill"
-            >
-              <i className="fa fa-sign-in me-2"></i>Login
-            </NavLink>
-            <NavLink
-              to="/register"
-              className="btn btn-secondary ms-2 px-4 rounded-pill"
-            >
-              <i className="fa fa-user-plus me-2"></i>Register
-            </NavLink>
-            <div className="dropdown">
-              <button
-                className="btn btn-outline-dark dropdown-toggle ms-2 px-4 rounded-pill"
-                type="button"
-                id="dropdownMenuButton2"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="fa fa-user me-2"></i>Username
-              </button>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="dropdownMenuButton2"
-              >
-                <li>
-                  <NavLink className="dropdown-item" to="/account">
-                    Account
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="dropdown-item" to="/logout">
-                    Logout
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+            {auth === true ? (
+              <>
+                <NavLink
+                  to="/login"
+                  className="btn btn-primary ms-auto px-4 rounded-pill"
+                >
+                  <i className="fa fa-sign-in me-2"></i>Login
+                </NavLink>
+                <NavLink
+                  to="/register"
+                  className="btn btn-secondary ms-2 px-4 rounded-pill"
+                >
+                  <i className="fa fa-user-plus me-2"></i>Register
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <div className="dropdown">
+                  <button
+                    className="btn btn-outline-dark dropdown-toggle ms-2 px-4 rounded-pill"
+                    type="button"
+                    id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i className="fa fa-user me-2"></i>Username
+                  </button>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton2"
+                  >
+                    <li>
+                      <NavLink className="dropdown-item" to="/account">
+                        Account
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink className="dropdown-item" to="/logout">
+                        Logout
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
