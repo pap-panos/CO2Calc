@@ -32,6 +32,7 @@ const Login = () => {
       (res) => {
         console.log(res.status);
         window.alert("Login Successfully");
+        window.location.reload();
         history("/");
         // Token is generated When we Logged In.
       },
