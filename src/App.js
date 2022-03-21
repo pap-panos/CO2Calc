@@ -19,13 +19,14 @@ function App() {
   // Check If User is Logged In
   const [logged, setLogged] = useState(false);
   const [logged0, setLogged0] = useState(true);
+  const [username, setUsername] = useState("");
 
   const isLoggedIn = async () => {
     await Axios.get("/api/users/auth").then(
       (res) => {
         setLogged(true);
         setLogged0(false);
-        console.log(res.status);
+        setUsername(res.data.username);
       },
       (error) => {
         setLogged(false);
@@ -41,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar auth={logged0} />
+      <Navbar auth={logged0} username={username} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
