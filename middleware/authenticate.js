@@ -23,7 +23,7 @@ const authenticate = async (req, res, next) => {
         res.status(401).send("User Not Found");
       } else {
         console.log("User logged in is: " + rootUser.username);
-        res.status(200).send("Authorized User");
+        res.status(200).json({ username: rootUser.username });
       }
     }
 
