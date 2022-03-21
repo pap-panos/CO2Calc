@@ -84,7 +84,7 @@ const Navbar = ({ auth, username }) => {
                     <i className="fa fa-user me-2"></i>{username}
                   </button>
                   <ul
-                    className="dropdown-menu"
+                    className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="dropdownMenuButton2"
                   >
                     <li>

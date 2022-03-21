@@ -56,7 +56,7 @@ function App() {
           element={<ProtectedRoute element={<Register />} auth={logged0} />}
         />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/questions" element={<Questions />} />
+        <Route path="/questions" element={<Questions username={username} />} />
         <Route
           path="/account"
           element={<ProtectedRoute element={<Account />} auth={logged} />}
