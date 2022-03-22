@@ -62,5 +62,15 @@ async function loginUser(email, password) {
   }
 }
 
+//Return all Users
+async function getUsers() {
+  try {
+    const users = await User.find({});
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // Export Users Services
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, loginUser, getUsers };
