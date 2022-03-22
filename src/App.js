@@ -9,8 +9,10 @@ import Logout from "./components/Logout";
 import Register from "./components/Register";
 import Account from "./components/Account";
 import ProtectedRoute from "./ProtectedRoute";
+import AdminRoute from "./AdminRoute";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Questions from "./components/Questionnaire/Questions";
+import Users from "./components/Administrative/Users";
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Axios from "axios";
@@ -18,19 +20,16 @@ import Axios from "axios";
 function App() {
   // Check If User is Logged In
   const [logged, setLogged] = useState(false);
-  const [logged0, setLogged0] = useState(true);
   const [username, setUsername] = useState("");
 
   const isLoggedIn = async () => {
     await Axios.get("/api/users/auth").then(
       (res) => {
         setLogged(true);
-        setLogged0(false);
         setUsername(res.data.username);
       },
       (error) => {
         setLogged(false);
-        setLogged0(true);
         console.log(error);
       }
     );
@@ -42,18 +41,18 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar auth={logged0} username={username} />
+      <Navbar auth={!logged} username={username} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/login"
-          element={<ProtectedRoute element={<Login />} auth={logged0} />}
+          element={<ProtectedRoute element={<Login />} auth={!logged} />}
         />
         <Route
           path="/register"
-          element={<ProtectedRoute element={<Register />} auth={logged0} />}
+          element={<ProtectedRoute element={<Register />} auth={!logged} />}
         />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/questions" element={<Questions username={username} />} />
@@ -64,6 +63,10 @@ function App() {
         <Route
           path="/logout"
           element={<ProtectedRoute element={<Logout />} auth={logged} />}
+        />
+        <Route
+          path="/users"
+          element={<AdminRoute element={<Users />} username={username} />}
         />
       </Routes>
       <Footer />

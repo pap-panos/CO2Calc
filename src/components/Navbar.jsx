@@ -81,17 +81,31 @@ const Navbar = ({ auth, username }) => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <i className="fa fa-user me-2"></i>{username}
+                    <i className="fa fa-user me-2"></i>
+                    {username}
                   </button>
                   <ul
                     className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="dropdownMenuButton2"
                   >
-                    <li>
-                      <NavLink className="dropdown-item" to="/account">
-                        Account
-                      </NavLink>
-                    </li>
+                    {username === "admin" ? (
+                      <>
+                        <li>
+                          <NavLink className="dropdown-item" to="/users">
+                            Users
+                          </NavLink>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li>
+                          <NavLink className="dropdown-item" to="/account">
+                            Account
+                          </NavLink>
+                        </li>
+                      </>
+                    )}
+
                     <li>
                       <NavLink className="dropdown-item" to="/logout">
                         Logout
