@@ -40,7 +40,7 @@ const Users = () => {
             if (user.username !== "admin") {
               return (
                 <tr key={user._id}>
-                  <th scope="row">{index + 1}</th>
+                  <th scope="row">{index}</th>
                   <td>{user.email}</td>
                   <td>{user.username}</td>
                   <td>Edit/Delete</td>
