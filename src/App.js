@@ -25,7 +25,7 @@ function App() {
   const isLoggedIn = async () => {
     await Axios.get("/api/users/auth").then(
       (res) => {
-        if (res.status === 200) {
+        if (res.data.username.length > 0) {
           setLogged(true);
           setUsername(res.data.username);
         }
