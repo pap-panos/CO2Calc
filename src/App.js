@@ -25,11 +25,14 @@ function App() {
   const isLoggedIn = async () => {
     await Axios.get("/api/users/auth").then(
       (res) => {
-        setLogged(true);
-        setUsername(res.data.username);
+        if (res.status === 200) {
+          setLogged(true);
+          setUsername(res.data.username);
+        }
       },
       (error) => {
         setLogged(false);
+        setUsername("");
         console.log(error);
       }
     );
