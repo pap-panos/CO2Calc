@@ -57,13 +57,13 @@ router.post("/login", async (req, res) => {
 });
 
 //Logout User
-router.get("/logout", (req, res) => {
+router.get("/logout", async (req, res) => {
   res.clearCookie("jwt", { path: "/" });
   res.status(200).send("User Logged Out");
 });
 
 // Authentication
-router.get("/auth", authenticate, (req, res) => {});
+router.get("/auth", authenticate, async (req, res) => {});
 
 //Get All Users
 router.get("/", async (req, res) => {
