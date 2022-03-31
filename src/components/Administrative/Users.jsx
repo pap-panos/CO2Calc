@@ -8,11 +8,7 @@ const Users = () => {
   const getUsers = async () => {
     await Axios.get("/api/users/").then(
       (res) => {
-        if (res.data.length > 0) {
-          setUsers(res.data);
-        } else {
-          setUsers([]);
-        }
+        setUsers(res.data);
       },
       (error) => {
         console.log(error);
@@ -25,9 +21,10 @@ const Users = () => {
   }, []);
 
   return (
-    <div className="container bg-white rounded my-2 p-3 d-flex justify-content-center">
-      <table className="table">
-        <thead>
+    <div className="container bg-white rounded my-2 p-3 table-responsive">
+      <table className="table table-hover table-bordered align-middle caption-top">
+        <caption>List of users</caption>
+        <thead className="table-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">e-mail</th>
