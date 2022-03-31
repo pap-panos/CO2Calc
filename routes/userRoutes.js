@@ -68,11 +68,7 @@ router.get("/auth", authenticate, async (req, res) => {});
 //Get All Users
 router.get("/", async (req, res) => {
   const users = await userServices.getUsers();
-  if (users.length > 0) {
-    res.status(200).send(users);
-  } else {
-    res.status(401).send("No users found in Database");
-  }
+  res.send(users);
 });
 
 // Export Users Routes
