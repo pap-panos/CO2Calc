@@ -4,9 +4,3 @@
   status = 200
   force = true
   headers = {X-From = "Netlify"}
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
