@@ -1,2 +1,2 @@
-/api/* https://co2-calc-compair-backend.herokuapp.com/api 200
+/api/* https://co2-calc-compair-backend.herokuapp.com/:splat 200
 /*  /index.html  200
