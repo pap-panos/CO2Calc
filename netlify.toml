@@ -1,6 +1,0 @@
-[[redirects]]
-  from = "/api/*"
-  to = "https://co2-calc-compair-backend.herokuapp.com/"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}

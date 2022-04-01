@@ -25,7 +25,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { email, password } = user;
-    await Axios.post("/api/users/login", {
+    await Axios.post("https://co2-calc-compair-backend.herokuapp.com/api/users/login", {
       email,
       password,
     }).then(
