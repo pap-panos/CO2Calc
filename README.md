@@ -1,2 +1,2 @@
 # CO2Calc
-https://romantic-sammet-f1b549.netlify.app/
+https://co2-calc-compair-frontend.netlify.app/
