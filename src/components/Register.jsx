@@ -29,7 +29,7 @@ const Register = () => {
     // Store Object Data into Variables
     const { email, username, password } = user;
     await Axios.post(
-      process.env.REACT_APP_BACKEND_URL + "/api/users/register",
+      process.env.REACT_APP_BACKEND_URL + "api/users/register",
       {
         email,
         username,

@@ -26,7 +26,7 @@ const Login = () => {
     event.preventDefault();
     const { email, password } = user;
     await Axios.post(
-      process.env.REACT_APP_BACKEND_URL + "/api/users/login",
+      process.env.REACT_APP_BACKEND_URL + "api/users/login",
       {
         email,
         password,

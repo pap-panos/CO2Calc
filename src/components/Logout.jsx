@@ -7,7 +7,7 @@ const Logout = () => {
   const history = useNavigate();
 
   const logout = async () => {
-    await Axios.get(process.env.REACT_APP_BACKEND_URL + "/api/users/logout", {
+    await Axios.get(process.env.REACT_APP_BACKEND_URL + "api/users/logout", {
       withCredentials: true,
     }).then(
       (res) => {

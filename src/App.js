@@ -23,7 +23,7 @@ function App() {
   const [username, setUsername] = useState("");
 
   const isLoggedIn = async () => {
-    await Axios.get(process.env.REACT_APP_BACKEND_URL + "/api/users/auth", {
+    await Axios.get(process.env.REACT_APP_BACKEND_URL + "api/users/auth", {
       withCredentials: true,
     }).then(
       (res) => {
