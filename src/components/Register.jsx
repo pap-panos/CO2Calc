@@ -28,11 +28,15 @@ const Register = () => {
     // Object DeStructuring
     // Store Object Data into Variables
     const { email, username, password } = user;
-    await Axios.post("/api/users/register", {
-      email,
-      username,
-      password,
-    }).then(
+    await Axios.post(
+      process.env.REACT_APP_BACKEND_URL + "/api/users/register",
+      {
+        email,
+        username,
+        password,
+      },
+      { withCredentials: true }
+    ).then(
       (res) => {
         console.log(res.status);
         window.alert("Registered Successfully");

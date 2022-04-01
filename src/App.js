@@ -23,7 +23,9 @@ function App() {
   const [username, setUsername] = useState("");
 
   const isLoggedIn = async () => {
-    await Axios.get("/api/users/auth").then(
+    await Axios.get(process.env.REACT_APP_BACKEND_URL + "/api/users/auth", {
+      withCredentials: true,
+    }).then(
       (res) => {
         if (res.data.username.length > 0) {
           setLogged(true);

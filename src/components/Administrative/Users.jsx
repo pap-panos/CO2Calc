@@ -6,7 +6,9 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
-    await Axios.get("/api/users/").then(
+    await Axios.get(process.env.REACT_APP_BACKEND_URL + "/api/users/", {
+      withCredentials: true,
+    }).then(
       (res) => {
         setUsers(res.data);
       },

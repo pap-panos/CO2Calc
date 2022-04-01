@@ -25,10 +25,14 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { email, password } = user;
-    await Axios.post("/api/users/login", {
-      email,
-      password,
-    }).then(
+    await Axios.post(
+      process.env.REACT_APP_BACKEND_URL + "/api/users/login",
+      {
+        email,
+        password,
+      },
+      { withCredentials: true }
+    ).then(
       (res) => {
         console.log(res.status);
         window.alert("Login Successfully");
