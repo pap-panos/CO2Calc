@@ -48,6 +48,8 @@ router.post("/login", async (req, res) => {
       // Expires Token in 24 Hours
       expires: new Date(Date.now() + 86400000),
       httpOnly: false,
+      secure: true,
+      sameSite: "none",
     });
 
     res.status(200).send("LoggedIn");
