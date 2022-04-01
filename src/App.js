@@ -23,7 +23,7 @@ function App() {
   const [username, setUsername] = useState("");
 
   const isLoggedIn = async () => {
-    await Axios.get("https://co2-calc-compair-backend.herokuapp.com/api/users/auth").then(
+    await Axios.get("/api/users/auth").then(
       (res) => {
         if (res.data.username.length > 0) {
           setLogged(true);
