@@ -38,16 +38,16 @@ router.post("/login", async (req, res) => {
   const password = req.body.password;
 
   //Call function to register user to db
-  const loggedIn = await userServices.loginUser(email, password);
-  //loggedIn is either null or the token value
+  const userToken = await userServices.loginUser(email, password);
+  //userToken is either null or the users token value from the db
 
   //Response send to front end
-  if (loggedIn !== null) {
-    //loggedIn contains the token!
-    res.cookie("jwt", loggedIn, {
+  if (userToken !== null) {
+    //userToken contains the users token!
+    res.cookie("jwt", userToken, {
       // Expires Token in 24 Hours
       expires: new Date(Date.now() + 86400000),
-      httpOnly: true,
+      httpOnly: false,
     });
 
     res.status(200).send("LoggedIn");

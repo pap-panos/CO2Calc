@@ -12,11 +12,17 @@ dotenv.config({ path: "./config.env" });
 require("./database/connect");
 const port = process.env.PORT;
 
+//Setup cors options
+const corsOptions = {
+  origin: true, //included origin as true
+  credentials: true, //included credentials as true
+};
+
 // Get Data and Cookies from FrontEnd
 app.use(express.json());
-app.use(express.urlencoded({extended : false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Required Routes
 const users = require("./routes/userRoutes");
