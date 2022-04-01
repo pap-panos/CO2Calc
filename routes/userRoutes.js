@@ -60,7 +60,12 @@ router.post("/login", async (req, res) => {
 
 //Logout User
 router.get("/logout", async (req, res) => {
-  res.clearCookie("jwt", { path: "/" });
+  res.clearCookie("jwt", {
+    path: "/",
+    httpOnly: false,
+    secure: true,
+    sameSite: "none",
+  });
   res.status(200).send("User Logged Out");
 });
 
