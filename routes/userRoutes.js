@@ -5,7 +5,9 @@ const router = express.Router();
 // Require Users Services
 const userServices = require("../services/userServices");
 
-const authenticate = require("../middleware/authenticate");
+const authenticate = require("../middlewares/authenticate");
+const authAdmin = require("../middlewares/authAdmin");
+const verifyToken = require("../middlewares/verifyToken");
 
 // Users Requests
 
@@ -59,7 +61,7 @@ router.post("/login", async (req, res) => {
 });
 
 //Logout User
-router.get("/logout", async (req, res) => {
+router.get("/logout", verifyToken, async (req, res) => {
   res.clearCookie("jwt", {
     path: "/",
     httpOnly: false,
@@ -73,7 +75,7 @@ router.get("/logout", async (req, res) => {
 router.get("/auth", authenticate, async (req, res) => {});
 
 //Get All Users
-router.get("/", async (req, res) => {
+router.get("/", authAdmin, async (req, res) => {
   const users = await userServices.getUsers();
   res.send(users);
 });

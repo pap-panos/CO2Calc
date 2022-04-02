@@ -1,4 +1,4 @@
-// Authenticate is the Middle Ware Here.
+// Authenticate if the user logged in is the admin, is the Middle Ware Here.
 // It will checked before the response.
 
 // Require Users Model
@@ -6,7 +6,7 @@ const { User } = require("../models/userModel");
 
 const jwt = require("jsonwebtoken");
 
-const authenticate = async (req, res, next) => {
+const authAdmin = async (req, res, next) => {
   try {
     // Get the Cookies
     const token = req.cookies.jwt;
@@ -23,15 +23,17 @@ const authenticate = async (req, res, next) => {
         res.status(401).send("User Not Found");
       } else {
         console.log("User logged in is: " + rootUser.username);
-        res.status(200).json({ username: rootUser.username });
+        if (rootUser.username === "admin") {
+          next();
+        } else {
+          res.status(401).send("User logged in is not the admin");
+        }
       }
     }
-
-    next();
   } catch (error) {
     res.status(401).send("Error");
     console.log(error);
   }
 };
 
-module.exports = authenticate;
+module.exports = authAdmin;
