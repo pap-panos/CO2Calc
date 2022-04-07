@@ -31,6 +31,7 @@ const Users = ({ username }) => {
             <th scope="col">#</th>
             <th scope="col">e-mail</th>
             <th scope="col">Username</th>
+            <th scope="col">Role</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -43,6 +44,7 @@ const Users = ({ username }) => {
                   <th scope="row">{index}</th>
                   <td>{user.email}</td>
                   <td>{user.username}</td>
+                  <td>{user.role}</td>
                   <td>
                     <button
                       type="button"
@@ -68,6 +70,7 @@ const Users = ({ username }) => {
                   <th scope="row">{index}</th>
                   <td>{user.email + " (You)"}</td>
                   <td>{user.username + " (You)"}</td>
+                  <td>{user.role + " (You)"}</td>
                   <td>{"(Currently logged in)"}</td>
                 </tr>
               );

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Alert from "./Alert";
 
-const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, username }) => {
+const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, role }) => {
   const [alert, setAlert] = useState(true);
   const [distance, setDistance] = useState(0);
   const [age, setAge] = useState("2");
@@ -91,7 +91,7 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, username }) => {
                 <option value="2">Miles</option>
               </select>
             </div>
-            {username === "admin" && (<span>This is calculated as a*x + b</span>)}
+            {role === "admin" && <span>This is calculated as a*x + b</span>}
           </div>
           <div className="col-md-4 py-2">
             <label className="form-label">Car Age:</label>

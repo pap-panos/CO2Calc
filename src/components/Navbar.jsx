@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import compair from "./assets/Large COMPAIR logo PNG.png";
 
-const Navbar = ({ auth, username }) => {
+const Navbar = ({ auth, username, role }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <div className="container-fluid">
@@ -88,7 +88,7 @@ const Navbar = ({ auth, username }) => {
                     className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="dropdownMenuButton2"
                   >
-                    {username === "admin" && (
+                    {role === "admin" && (
                       <>
                         <li>
                           <NavLink className="dropdown-item" to="/users">

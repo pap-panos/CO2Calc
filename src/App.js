@@ -21,6 +21,7 @@ function App() {
   // Check If User is Logged In
   const [logged, setLogged] = useState(false);
   const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
 
   const isLoggedIn = async () => {
     await Axios.get(process.env.REACT_APP_BACKEND_URL + "api/users/auth", {
@@ -30,11 +31,13 @@ function App() {
         if (res.data.username.length > 0) {
           setLogged(true);
           setUsername(res.data.username);
+          setRole(res.data.role);
         }
       },
       (error) => {
         setLogged(false);
         setUsername("");
+        setRole("");
         console.log(error);
       }
     );
@@ -46,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar auth={!logged} username={username} />
+      <Navbar auth={!logged} username={username} role={role} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -60,7 +63,7 @@ function App() {
           element={<ProtectedRoute element={<Register />} auth={!logged} />}
         />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/questions" element={<Questions username={username} />} />
+        <Route path="/questions" element={<Questions role={role} />} />
         <Route
           path="/account"
           element={<ProtectedRoute element={<Account />} auth={logged} />}
@@ -72,10 +75,7 @@ function App() {
         <Route
           path="/users"
           element={
-            <AdminRoute
-              element={<Users username={username} />}
-              username={username}
-            />
+            <AdminRoute element={<Users username={username} />} role={role} />
           }
         />
       </Routes>

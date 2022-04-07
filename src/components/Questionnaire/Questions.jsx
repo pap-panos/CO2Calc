@@ -11,7 +11,7 @@ import BusRail from "./questions/BusRail";
 import Demographic from "./questions/Demographic";
 import Results from "./results/Results";
 
-const Questions = ({username}) => {
+const Questions = ({ role }) => {
   const [activeTab, setActiveTab] = useState("welcome");
   const [cities, setCities] = useState();
   const [cityRes, setCityRes] = useState(0);
@@ -201,7 +201,7 @@ const Questions = ({username}) => {
             handleCarRes={handleCarRes}
             start={start}
             end={end}
-            username={username}
+            role={role}
           ></Car>
         </Tab>
         <Tab title="Motorbike" eventKey="motorbike" id="motorbike-tab">
