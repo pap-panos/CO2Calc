@@ -23,7 +23,7 @@ const authAdmin = async (req, res, next) => {
         res.status(401).send("User Not Found");
       } else {
         console.log("User logged in is: " + rootUser.username);
-        if (rootUser.username === "admin") {
+        if (rootUser.role === "admin") {
           next();
         } else {
           res.status(401).send("User logged in is not the admin");

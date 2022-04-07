@@ -14,6 +14,7 @@ async function registerUser(email, username, password) {
       email: email,
       username: username,
       password: password,
+      role: "user",
     });
 
     // Save Method is Used to Create User or Insert User
