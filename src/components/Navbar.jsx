@@ -88,7 +88,7 @@ const Navbar = ({ auth, username }) => {
                     className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="dropdownMenuButton2"
                   >
-                    {username === "admin" ? (
+                    {username === "admin" && (
                       <>
                         <li>
                           <NavLink className="dropdown-item" to="/users">
@@ -96,16 +96,12 @@ const Navbar = ({ auth, username }) => {
                           </NavLink>
                         </li>
                       </>
-                    ) : (
-                      <>
-                        <li>
-                          <NavLink className="dropdown-item" to="/account">
-                            Account
-                          </NavLink>
-                        </li>
-                      </>
                     )}
-
+                    <li>
+                      <NavLink className="dropdown-item" to="/account">
+                        Account
+                      </NavLink>
+                    </li>
                     <li>
                       <NavLink className="dropdown-item" to="/logout">
                         Logout

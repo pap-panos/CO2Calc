@@ -71,7 +71,12 @@ function App() {
         />
         <Route
           path="/users"
-          element={<AdminRoute element={<Users />} username={username} />}
+          element={
+            <AdminRoute
+              element={<Users username={username} />}
+              username={username}
+            />
+          }
         />
       </Routes>
       <Footer />
