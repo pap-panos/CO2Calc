@@ -18,11 +18,12 @@ const corsOptions = {
   credentials: true, //included credentials as true
 };
 
-// Get Data and Cookies from FrontEnd
+// Setup express app configurations
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors(corsOptions));
+//app.set("trust proxy", 1);
 
 // Required Routes
 const users = require("./routes/userRoutes");
