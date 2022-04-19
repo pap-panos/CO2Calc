@@ -24,12 +24,11 @@ const Users = ({ username }) => {
 
   return (
     <div className="container bg-white rounded my-2 p-3 table-responsive">
-      <table className="table table-hover table-bordered align-middle caption-top">
-        <caption>List of users</caption>
-        <thead className="table-dark">
+      <table className="table table-hover align-middle">
+        <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">e-mail</th>
+            <th scope="col">No.</th>
+            <th scope="col">E-mail</th>
             <th scope="col">Username</th>
             <th scope="col">Role</th>
             <th scope="col">Actions</th>
