@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Alert from "./Alert";
+import Alert from "../Alert";
 
 const Flights = ({ toNextTab, toPrevTab }) => {
   const [alert, setAlert] = useState(true);

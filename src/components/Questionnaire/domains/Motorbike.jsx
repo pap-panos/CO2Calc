@@ -1,22 +1,23 @@
 import React from "react";
 import { useState } from "react";
-import Alert from "./Alert";
+import Alert from "../Alert";
 
-const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, role }) => {
+const Motorbike = ({
+  toNextTab,
+  toPrevTab,
+  handleMotorbikeRes,
+  start,
+  end,
+}) => {
   const [alert, setAlert] = useState(true);
   const [distance, setDistance] = useState(0);
   const [age, setAge] = useState("2");
   const [efficiency, setEfficiency] = useState(3.5);
 
-  const carForm = (e) => {
+  const motorbikeForm = (e) => {
     e.preventDefault();
-    handleCarRes(distance, age, efficiency);
+    handleMotorbikeRes(distance, age, efficiency);
     setAlert(false);
-  };
-
-  const hideAlert = (e) => {
-    e.preventDefault();
-    setAlert(true);
   };
 
   const handleDistance = (e) => {
@@ -39,21 +40,26 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, role }) => {
     }
   };
 
+  const hideAlert = (e) => {
+    e.preventDefault();
+    setAlert(true);
+  };
+
   return (
     <div className="card">
       <div className="card-body">
         <h5 className="card-title text-center">
-          Car carbon footprint calculator
+          Motorbike carbon footprint calculator
         </h5>
         <form
           className="row justify-content-md-center"
           onSubmit={(e) => {
-            carForm(e);
+            motorbikeForm(e);
           }}
         >
           <Alert alert={alert} hideAlert={hideAlert}></Alert>
           <div className="col-12 py-2">
-            <span>You can enter details for cars:</span>
+            <span>You can enter details for motorbikes:</span>
           </div>
           <div className="col-md-6 py-2">
             <label className="form-label">Can be set from Welcome Tab.</label>
@@ -91,10 +97,9 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, role }) => {
                 <option value="2">Miles</option>
               </select>
             </div>
-            {role === "admin" && <span>This is calculated as a*x + b</span>}
           </div>
           <div className="col-md-4 py-2">
-            <label className="form-label">Car Age:</label>
+            <label className="form-label">Motorbike Age:</label>
             <select
               className="form-select"
               value={age}
@@ -138,13 +143,13 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, role }) => {
           <div className="col-12 py-2">
             <div className="d-flex justify-content-between">
               <button onClick={(e) => toPrevTab(e)} className="btn btn-primary">
-                Flights
+                Car
               </button>
               <button type="submit" className="btn btn-success mx-1">
                 Calculate & Add To Footprint
               </button>
               <button onClick={(e) => toNextTab(e)} className="btn btn-primary">
-                Motorbike
+                Bus & Rail
               </button>
             </div>
           </div>
@@ -154,4 +159,4 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, role }) => {
   );
 };
 
-export default Car;
+export default Motorbike;

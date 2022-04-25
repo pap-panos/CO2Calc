@@ -2,13 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import Welcome from "./questions/Welcome";
-import House from "./questions/House";
-import Flights from "./questions/Flights";
-import Car from "./questions/Car";
-import Motorbike from "./questions/Motorbike";
-import BusRail from "./questions/BusRail";
-import Demographic from "./questions/Demographic";
+import Welcome from "./Welcome";
+import House from "./domains/House";
+import Flights from "./domains/Flights";
+import Car from "./domains/Car";
+import Motorbike from "./domains/Motorbike";
+import BusRail from "./domains/BusRail";
+import Demographic from "./domains/Demographic";
 import Results from "./results/Results";
 
 const Questions = ({ role }) => {
@@ -189,7 +189,7 @@ const Questions = ({ role }) => {
           ></Demographic>
         </Tab>
         <Tab title="House" eventKey="house" id="house-tab">
-          <House toNextTab={toNextTab} toPrevTab={toPrevTab}></House>
+          <House toNextTab={toNextTab} toPrevTab={toPrevTab} role={role}></House>
         </Tab>
         <Tab title="Flights" eventKey="flights" id="flights-tab">
           <Flights toNextTab={toNextTab} toPrevTab={toPrevTab}></Flights>
