@@ -172,7 +172,9 @@ const House = ({ toNextTab, toPrevTab, role, start, end }) => {
           </form>
         </div>
       </div>
-      <HouseDomain action={action} domain={domain}></HouseDomain>
+      {role === "admin" && (
+        <HouseDomain action={action} domain={domain}></HouseDomain>
+      )}
     </>
   );
 };
