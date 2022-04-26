@@ -56,7 +56,7 @@ const Car = ({ toNextTab, toPrevTab, handleCarRes, start, end, role }) => {
             <span>You can enter details for cars:</span>
           </div>
           <div className="col-md-6 py-2">
-            <label className="form-label">Can be set from Welcome Tab.</label>
+            <label className="form-label">Date can be set from Welcome Tab.</label>
             <div className="input-group">
               <span className="input-group-text">From</span>
               <input

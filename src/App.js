@@ -11,7 +11,7 @@ import Account from "./components/Account";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminRoute from "./AdminRoute";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Questions from "./components/Questionnaire/Questions";
+import Domains from "./components/Calculator/Domains";
 import Users from "./components/Administrative/Users";
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -63,7 +63,7 @@ function App() {
           element={<ProtectedRoute element={<Register />} auth={!logged} />}
         />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/questions" element={<Questions role={role} />} />
+        <Route path="/calculator" element={<Domains role={role} />} />
         <Route
           path="/account"
           element={<ProtectedRoute element={<Account />} auth={logged} />}

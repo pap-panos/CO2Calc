@@ -40,7 +40,7 @@ const Navbar = ({ auth, username, role }) => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/questions">
+              <NavLink className="nav-link" to="/calculator">
                 Calculate
               </NavLink>
             </li>

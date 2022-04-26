@@ -3,9 +3,10 @@ import { useState } from "react";
 import Alert from "../Alert";
 import HouseDomain from "../../Administrative/Modals/HouseDomain";
 
-const House = ({ toNextTab, toPrevTab, role }) => {
+const House = ({ toNextTab, toPrevTab, role, start, end }) => {
   const [alert, setAlert] = useState(true);
   const [action, setAction] = useState("");
+  const [domain, setDomain] = useState("");
 
   const houseForm = (e) => {
     e.preventDefault();
@@ -15,6 +16,11 @@ const House = ({ toNextTab, toPrevTab, role }) => {
   const hideAlert = (e) => {
     e.preventDefault();
     setAlert(true);
+  };
+
+  const handleButton = (e) => {
+    setAction(e);
+    setDomain("x");
   };
 
   return (
@@ -53,7 +59,36 @@ const House = ({ toNextTab, toPrevTab, role }) => {
                 required
               />
             </div>
-            <div className="row py-2">
+            <div className="row py-1">
+              <div className="col-md-6 py-1">
+                <label className="form-label">
+                  Date can be set from Welcome Tab.
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">From</span>
+                  <input
+                    type="text"
+                    className="form-control bg-white"
+                    value={start}
+                    disabled
+                  />
+                  <span className="input-group-text">To</span>
+                  <input
+                    type="text"
+                    className="form-control bg-white"
+                    value={end}
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className={
+                role === "admin"
+                  ? "row py-1"
+                  : "row justify-content-md-center py-1"
+              }
+            >
               <div className="col-md-6">
                 <div className="input-group py-1">
                   <span className="input-group-text">Electricity:</span>
@@ -62,62 +97,10 @@ const House = ({ toNextTab, toPrevTab, role }) => {
                     <option value="1">kWh</option>
                   </select>
                 </div>
-                {/* <div className="input-group py-1">
-                  <span className="input-group-text">Natural gas:</span>
-                  <input type="number" className="form-control" required />
-                  <select className="form-select" defaultValue="1" required>
-                    <option value="1">therms</option>
-                    <option value="2">kWh</option>
-                  </select>
-                </div>
-                <div className="input-group py-1">
-                  <span className="input-group-text">Heating oil:</span>
-                  <input type="number" className="form-control" required />
-                  <select className="form-select" defaultValue="1" required>
-                    <option value="1">litres</option>
-                    <option value="2">tonnes</option>
-                    <option value="3">kWh</option>
-                  </select>
-                </div>
-                <div className="input-group py-1">
-                  <span className="input-group-text">Coal:</span>
-                  <input type="number" className="form-control" required />
-                  <select className="form-select" defaultValue="1" required>
-                    <option value="1">tonnes</option>
-                    <option value="2">kWh</option>
-                    <option value="3">x10Kg Bags</option>
-                    <option value="4">x20Kg Bags</option>
-                    <option value="5">x25Kg Bags</option>
-                    <option value="6">x50Kg Bags</option>
-                  </select>
-                </div>
-                <div className="input-group py-1">
-                  <span className="input-group-text">LPG:</span>
-                  <input type="number" className="form-control" required />
-                  <select className="form-select" defaultValue="1" required>
-                    <option value="1">litres</option>
-                    <option value="2">kWh</option>
-                    <option value="3">therms</option>
-                  </select>
-                </div>
-                <div className="input-group py-1">
-                  <span className="input-group-text">Propane:</span>
-                  <input type="number" className="form-control" required />
-                  <select className="form-select" defaultValue="1" required>
-                    <option value="1">litres</option>
-                  </select>
-                </div>
-                <div className="input-group py-1">
-                  <span className="input-group-text">Wood:</span>
-                  <input type="number" className="form-control" required />
-                  <select className="form-select" defaultValue="1" required>
-                    <option value="1">tonnes</option>
-                  </select>
-                </div> */}
               </div>
               {role === "admin" && (
                 <>
-                  <div className="col-md-2">
+                  <div className="col-xl-2 col-md-4 col-6">
                     <div className="input-group py-1">
                       <span className="input-group-text">Weight:</span>
                       <input
@@ -128,70 +111,24 @@ const House = ({ toNextTab, toPrevTab, role }) => {
                       />
                     </div>
                   </div>
-                  <div className="col-md-auto py-1">
+                  <div className="col-xl-auto col-auto py-1">
                     <button
                       type="button"
-                      onClick={() => setAction("Edit")}
+                      onClick={(e) => handleButton(e.target.value)}
                       className="btn btn-outline-primary me-2"
                       data-bs-toggle="modal"
                       data-bs-target="#HouseDomainModal"
+                      value="Edit"
                     >
                       Edit
                     </button>
                     <button
                       type="button"
-                      onClick={() => setAction("Delete")}
+                      onClick={(e) => handleButton(e.target.value)}
                       className="btn btn-outline-danger"
                       data-bs-toggle="modal"
                       data-bs-target="#HouseDomainModal"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </>
-              )}
-            </div>
-            <div className="row py-2">
-              <div className="col-md-6">
-                <div className="input-group py-1">
-                  <span className="input-group-text">Heating oil:</span>
-                  <input type="number" className="form-control" required />
-                  <select className="form-select" defaultValue="1" required>
-                    <option value="1">litres</option>
-                    <option value="2">tonnes</option>
-                    <option value="3">kWh</option>
-                  </select>
-                </div>
-              </div>
-              {role === "admin" && (
-                <>
-                  <div className="col-md-2">
-                    <div className="input-group py-1">
-                      <span className="input-group-text">Weight:</span>
-                      <input
-                        type="number"
-                        className="form-control"
-                        value="0.018"
-                        disabled
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-auto py-1">
-                    <button
-                      type="button"
-                      onClick={() => setAction("Edit")}
-                      className="btn btn-outline-primary me-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#HouseDomainModal"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setAction("Delete")}
-                      className="btn btn-outline-danger"
-                      data-bs-toggle="modal"
-                      data-bs-target="#HouseDomainModal"
+                      value="Delete"
                     >
                       Delete
                     </button>
@@ -203,10 +140,11 @@ const House = ({ toNextTab, toPrevTab, role }) => {
               <div className="d-flex justify-content-center p-2">
                 <button
                   type="button"
-                  onClick={() => setAction("Add")}
+                  onClick={(e) => handleButton(e.target.value)}
                   className="btn btn-outline-success"
                   data-bs-toggle="modal"
                   data-bs-target="#HouseDomainModal"
+                  value="Add"
                 >
                   Add Domain
                 </button>
@@ -234,7 +172,7 @@ const House = ({ toNextTab, toPrevTab, role }) => {
           </form>
         </div>
       </div>
-      <HouseDomain action={action}></HouseDomain>
+      <HouseDomain action={action} domain={domain}></HouseDomain>
     </>
   );
 };

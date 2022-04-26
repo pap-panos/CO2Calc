@@ -189,7 +189,13 @@ const Questions = ({ role }) => {
           ></Demographic>
         </Tab>
         <Tab title="House" eventKey="house" id="house-tab">
-          <House toNextTab={toNextTab} toPrevTab={toPrevTab} role={role}></House>
+          <House
+            toNextTab={toNextTab}
+            toPrevTab={toPrevTab}
+            role={role}
+            start={start}
+            end={end}
+          ></House>
         </Tab>
         <Tab title="Flights" eventKey="flights" id="flights-tab">
           <Flights toNextTab={toNextTab} toPrevTab={toPrevTab}></Flights>
