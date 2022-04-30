@@ -18,7 +18,7 @@ const Flights = ({ toNextTab, toPrevTab, start, end, role }) => {
     <div className="card">
       <div className="card-body">
         <h5 className="card-title text-center">CO2 from Flights</h5>
-        <h6>Type: Citizen</h6>
+        {role === "admin" && <h6>Type: Citizen</h6>}
         <form
           className="row g-3"
           onSubmit={(e) => {

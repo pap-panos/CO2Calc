@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoePrints } from "@fortawesome/free-solid-svg-icons";
 
-const User = ({ car, motorbike }) => {
+const User = () => {
   return (
     <div>
       <div className="d-flex justify-content-center p-1">
@@ -19,23 +19,11 @@ const User = ({ car, motorbike }) => {
         <div
           className="progress-bar text-wrap"
           role="progressbar"
-          style={{ width: car + "%" }}
-          aria-valuenow={car}
+          style={{ width: "10%" }}
+          aria-valuenow="10"
           aria-valuemin="0"
           aria-valuemax="100"
-        >
-          Car
-        </div>
-        <div
-          className="progress-bar bg-danger text-wrap"
-          role="progressbar"
-          style={{ width: motorbike + "%" }}
-          aria-valuenow={motorbike}
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
-          Motorbike
-        </div>
+        ></div>
       </div>
     </div>
   );

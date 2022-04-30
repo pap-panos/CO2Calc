@@ -19,7 +19,7 @@ const Cars = ({ toNextTab, toPrevTab, role }) => {
     <div className="card">
       <div className="card-body">
         <h5 className="card-title text-center">CO2 from Cars</h5>
-        <h6>Type: Citizen</h6>
+        {role === "admin" && <h6>Type: Citizen</h6>}
         <form
           className="row g-3"
           onSubmit={(e) => {
@@ -29,18 +29,23 @@ const Cars = ({ toNextTab, toPrevTab, role }) => {
           <Alert alert={alert} hideAlert={hideAlert}></Alert>
           {role === "admin" && (
             <div className="row g-3">
-              <div className="col-md-6">
-                <label className="form-label">Initial Value</label>
+              <div className="col-md-4">
+                <label className="form-label">Initial Value(D)</label>
                 <input type="number" className="form-control" value="12410" />
               </div>
             </div>
           )}
+          {role === "admin" && <h6>USER INPUT</h6>}
           <div className="col-md-6">
-            <label className="form-label">Litres/100 KM</label>
+            <label className="form-label">
+              {role === "admin" ? "Litres/100 KM(F)" : "Litres/100 KM"}
+            </label>
             <input type="number" className="form-control" />
           </div>
           <div className="col-md-6">
-            <label className="form-label">Type of Fuel</label>
+            <label className="form-label">
+              {role === "admin" ? "Type of Fuel(G)" : "Type of Fuel"}
+            </label>
             <select className="form-select" defaultValue="0">
               <option value="0" disabled hidden>
                 Choose...
@@ -60,7 +65,11 @@ const Cars = ({ toNextTab, toPrevTab, role }) => {
                 data-bs-toggle="tooltip"
                 title="Do you use public transportation? Check for yes or leave blank for no."
               />
-              <label className="form-check-label">Public Transportation</label>
+              <label className="form-check-label">
+                {role === "admin"
+                  ? "Public Transportation(H)"
+                  : "Public Transportation"}
+              </label>
             </div>
           </div>
           <div className="col-12">
@@ -71,9 +80,20 @@ const Cars = ({ toNextTab, toPrevTab, role }) => {
                 data-bs-toggle="tooltip"
                 title="Do you own an electric car? Check for yes or leave blank for no."
               />
-              <label className="form-check-label">Electric Car</label>
+              <label className="form-check-label">
+                {role === "admin" ? "Electric Car(I)" : "Electric Car"}
+              </label>
             </div>
           </div>
+          {role === "admin" && (
+            <div>
+              <h6>CALCULATION: ((D * Country_Factor)/100) * F * G * H</h6>
+              <h6>
+                CALCULATION FOR E-CAR: D * Country_Factor * 0.156 *
+                Country_Factor(KWH)
+              </h6>
+            </div>
+          )}
           <div className="col-12">
             <div className="d-flex justify-content-between">
               <button onClick={(e) => toPrevTab(e)} className="btn btn-primary">
