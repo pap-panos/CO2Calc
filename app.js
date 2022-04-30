@@ -27,11 +27,9 @@ app.use(cors(corsOptions));
 
 // Required Routes
 const users = require("./routes/userRoutes");
-const houseDomains = require("./routes/houseDomainRoutes");
 
 // Server Routing
 app.use("/api/users", users);
-app.use("/api/houseDomains", houseDomains);
 
 // Run Server
 app.listen(port, () => {
