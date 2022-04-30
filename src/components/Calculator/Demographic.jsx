@@ -57,7 +57,7 @@ const Demographic = ({ toNextTab, toPrevTab, handleCity, cities }) => {
                 Welcome
               </button>
               <button onClick={(e) => toNextTab(e)} className="btn btn-primary">
-                House
+                Cars
               </button>
             </div>
           </div>

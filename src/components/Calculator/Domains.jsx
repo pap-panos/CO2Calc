@@ -3,23 +3,23 @@ import { useState } from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Welcome from "./Welcome";
-import House from "./domains/House";
+import Trains from "./domains/Trains";
+import Cars from "./domains/Cars";
 import Flights from "./domains/Flights";
-import Car from "./domains/Car";
-import Motorbike from "./domains/Motorbike";
-import BusRail from "./domains/BusRail";
-import Demographic from "./domains/Demographic";
+import Buildings from "./domains/Buildings";
+import WasteDisposal from "./domains/WasteDisposal";
+import GreenStrategies from "./domains/GreenStrategies";
+import Demographic from "./Demographic";
 import Results from "./results/Results";
 
-const Questions = ({ role }) => {
+const Domains = ({ role }) => {
   const [activeTab, setActiveTab] = useState("welcome");
   const [cities, setCities] = useState();
   const [cityRes, setCityRes] = useState(0);
   const [countryRes, setCountryRes] = useState(0);
-  const [car, setCar] = useState(0);
+  // const [car, setCar] = useState(0);
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
-  const [motorbike, setMotorbike] = useState(0);
   const [start, setStart] = useState(new Date().toLocaleDateString("el-GR"));
   let oneYear = new Date();
   oneYear.setFullYear(oneYear.getFullYear() + 1);
@@ -33,19 +33,12 @@ const Questions = ({ role }) => {
     setEnd(new Date(e).toLocaleDateString("el-GR"));
   };
 
-  const handleCarRes = (distance, age, efficiency) => {
-    let total = Math.round(
-      distance / 2500 + 20 / parseInt(age) + efficiency * 0.5
-    );
-    setCar(total);
-  };
-
-  const handleMotorbikeRes = (distance, age, efficiency) => {
-    let total = Math.round(
-      distance / 2500 + 20 / parseInt(age) + efficiency * 0.5
-    );
-    setMotorbike(total);
-  };
+  // const handleCarRes = (distance, age, efficiency) => {
+  //   let total = Math.round(
+  //     distance / 2500 + 20 / parseInt(age) + efficiency * 0.5
+  //   );
+  //   setCar(total);
+  // };
 
   const handleCity = (e) => {
     setCity(e);
@@ -112,21 +105,24 @@ const Questions = ({ role }) => {
       setActiveTab("demographic");
     }
     if (activeTab === "demographic") {
-      setActiveTab("house");
+      setActiveTab("cars");
     }
-    if (activeTab === "house") {
+    if (activeTab === "cars") {
       setActiveTab("flights");
     }
     if (activeTab === "flights") {
-      setActiveTab("car");
+      setActiveTab("trains");
     }
-    if (activeTab === "car") {
-      setActiveTab("motorbike");
+    if (activeTab === "trains") {
+      setActiveTab("buildings");
     }
-    if (activeTab === "motorbike") {
-      setActiveTab("bus&rail");
+    if (activeTab === "buildings") {
+      setActiveTab("wasteDisposal");
     }
-    if (activeTab === "bus&rail") {
+    if (activeTab === "wasteDisposal") {
+      setActiveTab("greenStrategies");
+    }
+    if (activeTab === "greenStrategies") {
       setActiveTab("results");
     }
   }
@@ -135,23 +131,26 @@ const Questions = ({ role }) => {
     if (activeTab === "demographic") {
       setActiveTab("welcome");
     }
-    if (activeTab === "house") {
+    if (activeTab === "cars") {
       setActiveTab("demographic");
     }
     if (activeTab === "flights") {
-      setActiveTab("house");
+      setActiveTab("cars");
     }
-    if (activeTab === "car") {
+    if (activeTab === "trains") {
       setActiveTab("flights");
     }
-    if (activeTab === "motorbike") {
-      setActiveTab("car");
+    if (activeTab === "buildings") {
+      setActiveTab("trains");
     }
-    if (activeTab === "bus&rail") {
-      setActiveTab("motorbike");
+    if (activeTab === "wasteDisposal") {
+      setActiveTab("buildings");
+    }
+    if (activeTab === "greenStrategies") {
+      setActiveTab("wasteDisposal");
     }
     if (activeTab === "results") {
-      setActiveTab("bus&rail");
+      setActiveTab("greenStrategies");
     }
   }
 
@@ -188,47 +187,68 @@ const Questions = ({ role }) => {
             cities={cities}
           ></Demographic>
         </Tab>
-        <Tab title="House" eventKey="house" id="house-tab">
-          <House
-            toNextTab={toNextTab}
-            toPrevTab={toPrevTab}
-            role={role}
-            start={start}
-            end={end}
-          ></House>
+        <Tab title="Cars" eventKey="cars" id="cars-tab">
+          <Cars toNextTab={toNextTab} toPrevTab={toPrevTab} role={role}></Cars>
         </Tab>
         <Tab title="Flights" eventKey="flights" id="flights-tab">
-          <Flights toNextTab={toNextTab} toPrevTab={toPrevTab}></Flights>
-        </Tab>
-        <Tab title="Car" eventKey="car" id="car-tab">
-          <Car
+          <Flights
             toNextTab={toNextTab}
             toPrevTab={toPrevTab}
-            handleCarRes={handleCarRes}
             start={start}
             end={end}
             role={role}
-          ></Car>
+          ></Flights>
         </Tab>
-        <Tab title="Motorbike" eventKey="motorbike" id="motorbike-tab">
-          <Motorbike
+        <Tab title="Trains" eventKey="trains" id="trains-tab">
+          <Trains
             toNextTab={toNextTab}
             toPrevTab={toPrevTab}
-            handleMotorbikeRes={handleMotorbikeRes}
             start={start}
             end={end}
-          ></Motorbike>
+            role={role}
+          ></Trains>
         </Tab>
-        <Tab title="Bus & Rail" eventKey="bus&rail" id="bus&rail-tab">
-          <BusRail toPrevTab={toPrevTab} toNextTab={toNextTab}></BusRail>
+        <Tab title="Buildings" eventKey="buildings" id="buildings-tab">
+          <Buildings
+            toNextTab={toNextTab}
+            toPrevTab={toPrevTab}
+            start={start}
+            end={end}
+            role={role}
+          ></Buildings>
         </Tab>
+        <Tab
+          title="Waste Disposal"
+          eventKey="wasteDisposal"
+          id="wasteDisposal-tab"
+        >
+          <WasteDisposal
+            toNextTab={toNextTab}
+            toPrevTab={toPrevTab}
+            start={start}
+            end={end}
+            role={role}
+          ></WasteDisposal>
+        </Tab>
+        <Tab
+          title="Green Strategies"
+          eventKey="greenStrategies"
+          id="greenStrategies-tab"
+        >
+          <GreenStrategies
+            toNextTab={toNextTab}
+            toPrevTab={toPrevTab}
+            start={start}
+            end={end}
+            role={role}
+          ></GreenStrategies>
+        </Tab>
+
         <Tab title="Results" eventKey="results" id="results-tab">
           <Results
             toPrevTab={toPrevTab}
             countryRes={countryRes}
             cityRes={cityRes}
-            car={car}
-            motorbike={motorbike}
             city={city}
             country={country}
           ></Results>
@@ -238,4 +258,4 @@ const Questions = ({ role }) => {
   );
 };
 
-export default Questions;
+export default Domains;
