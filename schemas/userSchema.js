@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+      lowercase: true,
     },
     username: {
       type: String,
@@ -31,7 +32,10 @@ const userSchema = new mongoose.Schema(
       },
     ],
   },
-  { collection: "users" }
+  {
+    collection: "users",
+    timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" },
+  }
 );
 
 // Hashing Password to Secure
