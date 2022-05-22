@@ -28,10 +28,12 @@ app.use(cors(corsOptions));
 // Required Routes
 const users = require("./routes/userRoutes");
 const countries = require("./routes/countryRoutes");
+const carDomains = require("./routes/carDomainRoutes");
 
 // Server Routing
 app.use("/api/users", users);
 app.use("/api/countries", countries);
+app.use("/api/carDomains", carDomains);
 
 // Run Server
 app.listen(port, () => {
