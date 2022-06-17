@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Alert from "../Alert";
 
-const Flights = ({ toNextTab, toPrevTab, start, end, role }) => {
+const Flights = ({ toNextTab, toPrevTab, start, end, role, handleFlight }) => {
   const [alert, setAlert] = useState(true);
 
   const flightsForm = (e) => {
     e.preventDefault();
     setAlert(false);
+    handleFlight();
   };
 
   const hideAlert = (e) => {

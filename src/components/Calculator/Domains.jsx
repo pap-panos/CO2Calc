@@ -8,7 +8,6 @@ import Cars from "./domains/Cars";
 import Flights from "./domains/Flights";
 import Buildings from "./domains/Buildings";
 import WasteDisposal from "./domains/WasteDisposal";
-import GreenStrategies from "./domains/GreenStrategies";
 import Demographic from "./Demographic";
 import Results from "./results/Results";
 
@@ -17,7 +16,11 @@ const Domains = ({ role }) => {
   const [cities, setCities] = useState();
   const [cityRes, setCityRes] = useState(0);
   const [countryRes, setCountryRes] = useState(0);
-  // const [car, setCar] = useState(0);
+  const [car, setCar] = useState(0);
+  const [flight, setFlight] = useState(0);
+  const [train, setTrain] = useState(0);
+  const [building, setBuilding] = useState(0);
+  const [waste, setWaste] = useState(0);
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [start, setStart] = useState(new Date().toLocaleDateString("el-GR"));
@@ -39,6 +42,22 @@ const Domains = ({ role }) => {
   //   );
   //   setCar(total);
   // };
+
+  const handleCar = () => {
+    setCar(7);
+  };
+  const handleFlight = () => {
+    setFlight(15);
+  };
+  const handleTrain = () => {
+    setTrain(10);
+  };
+  const handleBuilding = () => {
+    setBuilding(17);
+  };
+  const handleWaste = () => {
+    setWaste(10);
+  };
 
   const handleCity = (e) => {
     setCity(e);
@@ -120,9 +139,6 @@ const Domains = ({ role }) => {
       setActiveTab("wasteDisposal");
     }
     if (activeTab === "wasteDisposal") {
-      setActiveTab("greenStrategies");
-    }
-    if (activeTab === "greenStrategies") {
       setActiveTab("results");
     }
   }
@@ -146,11 +162,8 @@ const Domains = ({ role }) => {
     if (activeTab === "wasteDisposal") {
       setActiveTab("buildings");
     }
-    if (activeTab === "greenStrategies") {
-      setActiveTab("wasteDisposal");
-    }
     if (activeTab === "results") {
-      setActiveTab("greenStrategies");
+      setActiveTab("wasteDisposal");
     }
   }
 
@@ -188,7 +201,12 @@ const Domains = ({ role }) => {
           ></Demographic>
         </Tab>
         <Tab title="Cars" eventKey="cars" id="cars-tab">
-          <Cars toNextTab={toNextTab} toPrevTab={toPrevTab} role={role}></Cars>
+          <Cars
+            toNextTab={toNextTab}
+            toPrevTab={toPrevTab}
+            role={role}
+            handleCar={handleCar}
+          ></Cars>
         </Tab>
         <Tab title="Flights" eventKey="flights" id="flights-tab">
           <Flights
@@ -197,6 +215,7 @@ const Domains = ({ role }) => {
             start={start}
             end={end}
             role={role}
+            handleFlight={handleFlight}
           ></Flights>
         </Tab>
         <Tab title="Trains" eventKey="trains" id="trains-tab">
@@ -206,6 +225,7 @@ const Domains = ({ role }) => {
             start={start}
             end={end}
             role={role}
+            handleTrain={handleTrain}
           ></Trains>
         </Tab>
         <Tab title="Buildings" eventKey="buildings" id="buildings-tab">
@@ -215,6 +235,7 @@ const Domains = ({ role }) => {
             start={start}
             end={end}
             role={role}
+            handleBuilding={handleBuilding}
           ></Buildings>
         </Tab>
         <Tab
@@ -228,22 +249,9 @@ const Domains = ({ role }) => {
             start={start}
             end={end}
             role={role}
+            handleWaste={handleWaste}
           ></WasteDisposal>
         </Tab>
-        <Tab
-          title="Green Strategies"
-          eventKey="greenStrategies"
-          id="greenStrategies-tab"
-        >
-          <GreenStrategies
-            toNextTab={toNextTab}
-            toPrevTab={toPrevTab}
-            start={start}
-            end={end}
-            role={role}
-          ></GreenStrategies>
-        </Tab>
-
         <Tab title="Results" eventKey="results" id="results-tab">
           <Results
             toPrevTab={toPrevTab}
@@ -251,6 +259,11 @@ const Domains = ({ role }) => {
             cityRes={cityRes}
             city={city}
             country={country}
+            car={car}
+            flight={flight}
+            train={train}
+            building={building}
+            waste={waste}
           ></Results>
         </Tab>
       </Tabs>

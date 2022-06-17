@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoePrints } from "@fortawesome/free-solid-svg-icons";
 
-const User = () => {
+const User = ({ car, flight, train, building, waste }) => {
   return (
     <div>
       <div className="d-flex justify-content-center p-1">
@@ -19,11 +19,53 @@ const User = () => {
         <div
           className="progress-bar text-wrap"
           role="progressbar"
-          style={{ width: "10%" }}
-          aria-valuenow="10"
+          style={{ width: car + "%" }}
+          aria-valuenow={car}
           aria-valuemin="0"
           aria-valuemax="100"
-        ></div>
+        >
+          Cars
+        </div>
+        <div
+          className="progress-bar bg-danger text-wrap"
+          role="progressbar"
+          style={{ width: flight + "%" }}
+          aria-valuenow={flight}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          Flights
+        </div>
+        <div
+          className="progress-bar bg-success text-wrap"
+          role="progressbar"
+          style={{ width: train + "%" }}
+          aria-valuenow={train}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          Trains
+        </div>
+        <div
+          className="progress-bar bg-warning text-wrap"
+          role="progressbar"
+          style={{ width: building + "%" }}
+          aria-valuenow={building}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          Buildings
+        </div>
+        <div
+          className="progress-bar bg-secondary text-wrap"
+          role="progressbar"
+          style={{ width: waste + "%" }}
+          aria-valuenow={waste}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          Waste
+        </div>
       </div>
     </div>
   );

@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Alert from "../Alert";
 
-const WasteDisposal = ({ toNextTab, toPrevTab, role }) => {
+const WasteDisposal = ({ toNextTab, toPrevTab, role, handleWaste }) => {
   const [alert, setAlert] = useState(true);
 
   const wasteForm = (e) => {
     e.preventDefault();
     setAlert(false);
+    handleWaste();
   };
 
   const hideAlert = (e) => {
@@ -100,7 +101,7 @@ const WasteDisposal = ({ toNextTab, toPrevTab, role }) => {
                 Calculate
               </button>
               <button onClick={(e) => toNextTab(e)} className="btn btn-primary">
-                Green Strategies
+                Results
               </button>
             </div>
           </div>

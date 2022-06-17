@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Alert from "../Alert";
 
-const Cars = ({ toNextTab, toPrevTab, role }) => {
+const Cars = ({ toNextTab, toPrevTab, role, handleCar }) => {
   const [alert, setAlert] = useState(true);
 
   const carsForm = (e) => {
     e.preventDefault();
     setAlert(false);
+    handleCar();
   };
 
   const hideAlert = (e) => {

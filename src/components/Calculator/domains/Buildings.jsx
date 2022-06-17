@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Alert from "../Alert";
 
-const Buildings = ({ toNextTab, toPrevTab, role }) => {
+const Buildings = ({ toNextTab, toPrevTab, role, handleBuilding }) => {
   const [alert, setAlert] = useState(true);
 
   const buildingsForm = (e) => {
     e.preventDefault();
     setAlert(false);
+    handleBuilding();
   };
 
   const hideAlert = (e) => {

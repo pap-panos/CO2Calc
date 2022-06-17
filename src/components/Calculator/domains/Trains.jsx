@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Alert from "../Alert";
 
-const Trains = ({ toNextTab, toPrevTab, start, end, role }) => {
+const Trains = ({ toNextTab, toPrevTab, start, end, role, handleTrain }) => {
   const [alert, setAlert] = useState(true);
 
   const trainsForm = (e) => {
     e.preventDefault();
     setAlert(false);
+    handleTrain();
   };
 
   const hideAlert = (e) => {

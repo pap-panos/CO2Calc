@@ -4,7 +4,18 @@ import City from "./City";
 import Country from "./Country";
 import World from "./World";
 
-const Results = ({ toPrevTab, cityRes, countryRes, country, city }) => {
+const Results = ({
+  toPrevTab,
+  cityRes,
+  countryRes,
+  country,
+  city,
+  car,
+  flight,
+  train,
+  building,
+  waste,
+}) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -13,7 +24,13 @@ const Results = ({ toPrevTab, cityRes, countryRes, country, city }) => {
         </h5>
         <div className="row py-2">
           <div className="col-md-6 p-2">
-            <User></User>
+            <User
+              car={car}
+              flight={flight}
+              train={train}
+              building={building}
+              waste={waste}
+            ></User>
           </div>
           <div className="col-md-6 p-2">
             <City cityRes={cityRes} city={city}></City>
@@ -26,7 +43,7 @@ const Results = ({ toPrevTab, cityRes, countryRes, country, city }) => {
           </div>
         </div>
         <button onClick={(e) => toPrevTab(e)} className="btn btn-primary">
-          Green Strategies
+          Waste Disposal
         </button>
       </div>
     </div>
