@@ -45,13 +45,13 @@ const Buildings = ({ toNextTab, toPrevTab, role, handleBuilding }) => {
             </div>
           )}
           {role === "admin" && <h6>USER INPUT</h6>}
-          <div className="col-md-4">
+          <div className="col-md-6">
             <label className="form-label">
               {role === "admin" ? "Fuel per year(L)" : "Fuel per year"}
             </label>
             <input type="number" className="form-control" />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-6">
             <label className="form-label">
               {role === "admin" ? "Type of Fuel(K)" : "Type of Fuel"}
             </label>
@@ -65,7 +65,15 @@ const Buildings = ({ toNextTab, toPrevTab, role, handleBuilding }) => {
               <option>Biomass</option>
             </select>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-6">
+            <label className="form-label">
+              {role === "admin"
+                ? "Electricity (kWh per year)(N)"
+                : "Electricity (kWh per year)"}
+            </label>
+            <input type="number" className="form-control" />
+          </div>
+          <div className="col-md-6">
             <label className="form-label">
               {role === "admin" ? "Grid Type(G)" : "Grid Type"}
             </label>

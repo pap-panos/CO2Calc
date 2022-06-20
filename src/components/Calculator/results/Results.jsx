@@ -19,11 +19,9 @@ const Results = ({
   return (
     <div className="card">
       <div className="card-body">
-        <h5 className="card-title text-center">
-          CO2 Footprint Calculator Results
-        </h5>
-        <div className="row py-2">
-          <div className="col-md-6 p-2">
+        <h5 className="card-title text-center">CO2 Calculator Results</h5>
+        <div className="row justify-content-center py-2">
+          <div className="col-lg-7 py-2">
             <User
               car={car}
               flight={flight}
@@ -32,15 +30,17 @@ const Results = ({
               waste={waste}
             ></User>
           </div>
-          <div className="col-md-6 p-2">
-            <City cityRes={cityRes} city={city}></City>
-          </div>
-          <div className="col-md-6 p-2">
+        </div>
+        <div className="row justify-content-center py-2">
+          <div className="col-lg-7 py-2">
             <Country countryRes={countryRes} country={country}></Country>
           </div>
-          <div className="col-md-6 p-2">
-            <World></World>
-          </div>
+        </div>
+        <div hidden>
+          <City hidden cityRes={cityRes} city={city}></City>
+        </div>
+        <div hidden>
+          <World></World>
         </div>
         <button onClick={(e) => toPrevTab(e)} className="btn btn-primary">
           Waste Disposal

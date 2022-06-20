@@ -6,26 +6,21 @@ import ChartContent from "./ChartContent";
 import TuningBar from "./TuningBar";
 import ModalAnswers from "./ModalAnswers";
 
-const Dashboard = () => {
+const Simulation = () => {
   const [totalData, setTotalData] = useState([515, 510, 535, 575]);
   const [fuelData, setFuelData] = useState([505, 500, 525, 565]);
-  const [airData, setAirData] = useState([100, 60, 60]);
   const [progress, setProgress] = useState(4);
   const [prev, setPrev] = useState(1);
 
   const handleChart = (c) => {
     let tempTotalData = [...totalData];
     let tempFuelData = [...fuelData];
-    let tempAirData = [...airData];
     let bar = progress;
     switch (c) {
       case "1":
         for (let i = 0; i < tempTotalData.length; i++) {
           tempTotalData[i] += 50;
           tempFuelData[i] += 50;
-        }
-        for (let i = 0; i < tempAirData.length; i++) {
-          tempAirData[i] += 5;
         }
         bar -= 10;
         setPrev(1);
@@ -36,17 +31,11 @@ const Dashboard = () => {
             tempTotalData[i] += 50;
             tempFuelData[i] += 50;
           }
-          for (let i = 0; i < tempAirData.length; i++) {
-            tempAirData[i] += 5;
-          }
           bar -= 10;
         } else {
           for (let i = 0; i < tempTotalData.length; i++) {
             tempTotalData[i] -= 50;
             tempFuelData[i] -= 50;
-          }
-          for (let i = 0; i < tempAirData.length; i++) {
-            tempAirData[i] -= 5;
           }
           bar += 10;
         }
@@ -58,17 +47,11 @@ const Dashboard = () => {
             tempTotalData[i] += 50;
             tempFuelData[i] += 50;
           }
-          for (let i = 0; i < tempAirData.length; i++) {
-            tempAirData[i] += 5;
-          }
           bar -= 10;
         } else {
           for (let i = 0; i < tempTotalData.length; i++) {
             tempTotalData[i] -= 50;
             tempFuelData[i] -= 50;
-          }
-          for (let i = 0; i < tempAirData.length; i++) {
-            tempAirData[i] -= 5;
           }
           bar += 10;
         }
@@ -78,9 +61,6 @@ const Dashboard = () => {
         for (let i = 0; i < tempTotalData.length; i++) {
           tempTotalData[i] -= 50;
           tempFuelData[i] -= 50;
-        }
-        for (let i = 0; i < tempAirData.length; i++) {
-          tempAirData[i] -= 5;
         }
         bar += 10;
         setPrev(4);
@@ -94,11 +74,6 @@ const Dashboard = () => {
     } else {
       setTotalData(tempTotalData);
       setFuelData(tempFuelData);
-    }
-    if (tempAirData[2] < 10) {
-      setAirData([50, 10, 10]);
-    } else {
-      setAirData(tempAirData);
     }
     if (bar > 100) {
       setProgress(100);
@@ -121,7 +96,6 @@ const Dashboard = () => {
           <ChartContent
             totalData={totalData}
             fuelData={fuelData}
-            airData={airData}
           ></ChartContent>
         </div>
         <div className="col-lg-2 p-0 rounded">
@@ -132,4 +106,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Simulation;

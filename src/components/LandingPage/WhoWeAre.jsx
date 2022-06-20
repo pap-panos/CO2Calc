@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import aboutPic from "./assets/Small COMPAIR Logo PNG.png";
 
-const About = () => {
+const WhoWeAre = () => {
   return (
     <div>
       <section id="about">
@@ -16,21 +16,22 @@ const About = () => {
               />
             </div>
             <div className="col-lg-6">
-              <h3 className="fs-5 mb-0">About Us</h3>
-              <h1 className="display-6 mb-2">
+              <h1 className="display-6 mb-3">
                 Who <b>We</b> Are
               </h1>
-              <hr className="w-50" />
               <p className="lead mb-4">
-                Companies share a common responsible goal to track and reduce
-                carbon emissions 'at source' as much as possible and to
-                compensate for unavoidable emissions - via carbon offsetting -
-                to render their activities to be net zero carbon/carbon neutral.
-                With this action, they protect both environment and their own
-                businesses; better sustainability credentials allow them to
-                maximise commercial opportunities (from both sales tender and
-                operational savings), enhance their brands, engage stakeholders
-                and make theirs better businesses to work at.
+                COMPAIR is a 3 year project, starting in November 2021, working
+                with local authorities and citizens to run citizen science
+                experiments to supplement gaps in official air quality data to
+                (a) co-create more effective social actions and (b) influence
+                city policy. Together these actions will contribute towards
+                healthier and greener cities for all.
+                <br />
+                <br />
+                Consisting of 15 organisations from 6 different European
+                countries: Belgium, Bulgaria, Germany, Greece, United Kingdom,
+                and The Netherlands, the initiative is led by Digital
+                Vlaanderen.
               </p>
               <NavLink
                 to="/contact"
@@ -46,4 +47,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default WhoWeAre;

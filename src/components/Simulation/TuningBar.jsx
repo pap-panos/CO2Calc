@@ -17,7 +17,7 @@ const TuningBar = ({ handleChart }) => {
             aria-controls="nav-demand"
             aria-selected="true"
           >
-            Demand
+            Citizen
           </button>
           <button
             className="nav-link"
@@ -29,7 +29,7 @@ const TuningBar = ({ handleChart }) => {
             aria-controls="nav-supply"
             aria-selected="false"
           >
-            Supply
+            Government
           </button>
         </div>
       </nav>

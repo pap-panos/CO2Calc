@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWind, faIndustry } from "@fortawesome/free-solid-svg-icons";
+import { faIndustry } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
   return (
@@ -23,19 +23,6 @@ const Sidebar = () => {
         >
           <FontAwesomeIcon icon={faIndustry} className="me-2"></FontAwesomeIcon>
           Emmissions
-        </button>
-        <button
-          className="nav-link d-flex align-items-center"
-          id="v-pills-AirQuality-tab"
-          data-bs-toggle="pill"
-          data-bs-target="#v-pills-AirQuality"
-          type="button"
-          role="tab"
-          aria-controls="v-pills-AirQuality"
-          aria-selected="false"
-        >
-          <FontAwesomeIcon icon={faWind} className="me-2"></FontAwesomeIcon>
-          Air Quality
         </button>
       </div>
     </div>

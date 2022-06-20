@@ -115,13 +115,13 @@ const Register = () => {
               </div>
               <button
                 type="submit"
-                className="btn btn-primary w-100 mt-4 rounded-pill"
+                className="btn btn-success w-100 mt-4 rounded-pill"
               >
                 Register
               </button>
             </form>
           </div>
-          <div className="col-lg-6 p-3 d-flex flex-column align-items-center text-white justify-content-center bg-primary rounded-end">
+          <div className="col-lg-6 p-3 d-flex flex-column align-items-center text-white justify-content-center bg-success rounded-end">
             <h1 className="display-4 fw-bolder">Join Us</h1>
             <p className="lead text-center">Enter Your Details to Register</p>
             <h5 className="mb-4">OR</h5>

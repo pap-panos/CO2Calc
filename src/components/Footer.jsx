@@ -1,20 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import compair from "./assets/Large COMPAIR logo PNG.png";
 
 const Footer = () => {
   return (
-    <footer className="footer text-white bg-secondary mt-auto">
+    <footer className="footer text-white bg-dark mt-auto">
       <div className="container">
         <footer className="py-5">
           <div className="row">
             <div className="col-4">
-              <h4>CO2 Footprint Calculator</h4>
-              <img
-                src={compair}
-                className="rounded img-fluid float-start"
-                alt="..."
-              ></img>
+              <h4>Carbon Footprint Simulation Dashboard</h4>
             </div>
             <div className="col-2">
               <h5>Our work</h5>

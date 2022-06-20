@@ -1,6 +1,5 @@
 import "./App.css";
 import Home from "./components/LandingPage/Home";
-import About from "./components/LandingPage/About";
 import Contact from "./components/LandingPage/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,7 +9,7 @@ import Register from "./components/Register";
 import Account from "./components/Account";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminRoute from "./AdminRoute";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Simulation from "./components/Simulation/Simulation";
 import Domains from "./components/Calculator/Domains";
 import Users from "./components/Administrative/Users";
 import { Route, Routes } from "react-router-dom";
@@ -52,7 +51,6 @@ function App() {
       <Navbar auth={!logged} username={username} role={role} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/login"
@@ -62,7 +60,7 @@ function App() {
           path="/register"
           element={<ProtectedRoute element={<Register />} auth={!logged} />}
         />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/simulation" element={<Simulation />} />
         <Route path="/calculator" element={<Domains role={role} />} />
         <Route
           path="/account"

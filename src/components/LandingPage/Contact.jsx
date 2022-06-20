@@ -8,11 +8,9 @@ const Contact = () => {
         <div className="container my-5 py-5 rounded bg-white">
           <div className="row mb-5">
             <div className="col-12">
-              <h3 className="fs-5 text-center mb-0">Contact Us</h3>
               <h1 className="display-6 text-center mb-4">
-                Got Any <b>Questions?</b>
+                Contact <b>Us</b>
               </h1>
-              <hr className="w-25 mx-auto" />
             </div>
           </div>
           <div className="row">

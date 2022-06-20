@@ -12,57 +12,42 @@ const User = ({ car, flight, train, building, waste }) => {
         <FontAwesomeIcon
           icon={faShoePrints}
           className="fa-3x"
-          style={{ color: "#0d6efd" }}
+          style={{ color: "#000000" }}
         ></FontAwesomeIcon>
       </div>
       <div className="progress" style={{ height: "20px" }}>
         <div
           className="progress-bar text-wrap"
-          role="progressbar"
+          role="button"
           style={{ width: car + "%" }}
-          aria-valuenow={car}
-          aria-valuemin="0"
-          aria-valuemax="100"
         >
           Cars
         </div>
         <div
           className="progress-bar bg-danger text-wrap"
-          role="progressbar"
+          role="button"
           style={{ width: flight + "%" }}
-          aria-valuenow={flight}
-          aria-valuemin="0"
-          aria-valuemax="100"
         >
           Flights
         </div>
         <div
           className="progress-bar bg-success text-wrap"
-          role="progressbar"
+          role="button"
           style={{ width: train + "%" }}
-          aria-valuenow={train}
-          aria-valuemin="0"
-          aria-valuemax="100"
         >
           Trains
         </div>
         <div
           className="progress-bar bg-warning text-wrap"
-          role="progressbar"
+          role="button"
           style={{ width: building + "%" }}
-          aria-valuenow={building}
-          aria-valuemin="0"
-          aria-valuemax="100"
         >
           Buildings
         </div>
         <div
-          className="progress-bar bg-secondary text-wrap"
-          role="progressbar"
+          className="progress-bar bg-info text-wrap"
+          role="button"
           style={{ width: waste + "%" }}
-          aria-valuenow={waste}
-          aria-valuemin="0"
-          aria-valuemax="100"
         >
           Waste
         </div>

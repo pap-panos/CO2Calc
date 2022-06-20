@@ -14,7 +14,6 @@ const Navbar = ({ auth, username, role }) => {
             height="28"
             className="d-inline-block align-text-bottom"
           />
-          CO2 Calculator
         </NavLink>
         <button
           className="navbar-toggler"
@@ -35,18 +34,13 @@ const Navbar = ({ auth, username, role }) => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/dashboard">
-                Dashboard
-              </NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/calculator">
-                Calculate
+                CO2 Calculator
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/about">
-                About
+              <NavLink className="nav-link" to="/simulation">
+                Scenario Simulation
               </NavLink>
             </li>
             <li className="nav-item">
@@ -66,7 +60,7 @@ const Navbar = ({ auth, username, role }) => {
                 </NavLink>
                 <NavLink
                   to="/register"
-                  className="btn btn-secondary ms-2 px-4 rounded-pill"
+                  className="btn btn-outline-success ms-2 px-4 rounded-pill"
                 >
                   <i className="fa fa-user-plus me-2"></i>Register
                 </NavLink>

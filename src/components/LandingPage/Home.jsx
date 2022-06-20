@@ -1,6 +1,7 @@
 import React from "react";
-import About from "./About";
+import WhoWeAre from "./WhoWeAre";
 import Contact from "./Contact";
+import WhatIs from "./WhatIs";
 import { NavLink } from "react-router-dom";
 
 const Home = () => {
@@ -14,20 +15,15 @@ const Home = () => {
                 className="display-4 fw-bolder
                  text-center text-white p-2"
               >
-                CARBON CALCULATOR
+                Carbon Footprint Simulation Dashboard
               </h1>
               <p className="lead text-center text-white fs-4 p-2">
-                Carbon Footprint Calculator For Individuals. This carbon
-                calculator is provided free to use. Show you care for the
-                environment and communities across the World by Carbon
-                Offsetting. Reducing emissions is the key solution to tackling
-                climate change. Carbon Footprint Calculator works tirelessly on
-                your part to shape the agenda for environmental and carbon
-                management!
+                Together we can achieve clean air for all. Use the Carbon
+                Footprint Simulation Dashboard and take action today.
               </p>
               <div className="d-flex justify-content-center p-2">
                 <NavLink
-                  to="/register"
+                  to="/calculator"
                   className="btn btn-light rounded-pill p-2"
                 >
                   Get Started
@@ -37,7 +33,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <About></About>
+      <WhatIs></WhatIs>
+      <WhoWeAre></WhoWeAre>
       <Contact></Contact>
     </div>
   );

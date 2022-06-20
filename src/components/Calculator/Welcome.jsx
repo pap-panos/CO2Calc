@@ -9,9 +9,7 @@ const Welcome = ({
   return (
     <div className="card">
       <div className="card-body">
-        <h5 className="card-title text-center">
-          Welcome to the web's leading carbon footprint calculator
-        </h5>
+        <h5 className="card-title text-center">CO2 Calculator</h5>
         <div>
           <div className="col-md-4 py-2">
             <label className="form-label">
