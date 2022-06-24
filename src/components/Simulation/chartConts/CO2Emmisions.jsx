@@ -1,7 +1,7 @@
 import React from "react";
 import CO2EmmChart from "../charts/CO2EmmChart";
 
-const CO2Emmisions = ({ totalData, fuelData }) => {
+const CO2Emmisions = ({ totalData, totalColor }) => {
   return (
     <div
       className="tab-pane fade show active"
@@ -11,7 +11,7 @@ const CO2Emmisions = ({ totalData, fuelData }) => {
     >
       <div className="card border border-light rounded">
         <div className="card-body">
-          <CO2EmmChart totalData={totalData} fuelData={fuelData} />
+          <CO2EmmChart totalData={totalData} totalColor={totalColor} />
         </div>
       </div>
     </div>

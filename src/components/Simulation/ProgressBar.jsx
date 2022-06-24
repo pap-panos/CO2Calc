@@ -18,7 +18,7 @@ const ProgressBar = ({ progress }) => {
         <div className="progress w-100 h-75">
           <div
             className={
-              progress < 80
+              progress < 55
                 ? "progress-bar bg-danger text-wrap"
                 : "progress-bar bg-success text-wrap"
             }
@@ -35,7 +35,7 @@ const ProgressBar = ({ progress }) => {
       >
         <div className="bg-white p-1 rounded" style={{ zIndex: "1" }}>
           <button
-            disabled={progress < 79}
+            disabled={progress < 55}
             className="btn btn-success"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"

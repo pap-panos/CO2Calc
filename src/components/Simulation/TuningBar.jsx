@@ -41,32 +41,45 @@ const TuningBar = ({ handleChart }) => {
           aria-labelledby="nav-demand-tab"
         >
           <Range
-            id={"DomesticTransportBehaviour"}
-            name={"Domestic transport behaviour"}
-            title={
-              "In 2050, individuals travel 9% further than today. No noticeable modal shift."
+            id={"ImproveTransportationHabits"}
+            name={"Improve Transportation Habits"}
+            tooltip1={"Total CO2 emissions (25,8%)"}
+            tooltip2={"Carpolling (20,12% CO2)"}
+            tooltip3={
+              "Carpooling + Replace business and first class with economy (15,74% CO2)"
+            }
+            tooltip4={
+              "Carpooling + Replace business and first class with economy + Replace indirect flights with direct flights (13,16% CO2)"
             }
             handleChart={handleChart}
           ></Range>
           <Range
-            id={"ShiftToZeroEmissionTransport"}
-            name={"Shift to zero emission transport"}
-            title={
-              "By 2050, 20% plug in hybrid electric cars; 2.5% zero emission cars."
+            id={"LivingHabits"}
+            name={"Living Habits"}
+            tooltip1={"Total CO2 emissions (25,8%)"}
+            tooltip2={
+              "Replace old fluorescent lighting with LED's (25,08% CO2)"
+            }
+            tooltip3={
+              "Replace old fluorescent lighting with LED's + Energy Efficient appliances (23,81% CO2)"
+            }
+            tooltip4={
+              "Insulation Thickness + Replace old fluorescent lighting with LED's + Energy Efficient appliances (20,72% CO2)"
             }
             handleChart={handleChart}
           ></Range>
           <Range
-            id={"ChoiceOfFuelCellsOrBatteries"}
-            name={"Choice of fuel cells or batteries"}
-            title={"100% of zero emission cars use batteries by 2050"}
-            handleChart={handleChart}
-          ></Range>
-          <Range
-            id={"DomesticFreight"}
-            name={"Domestic freight"}
-            title={
-              "Road haulage makes up 73% of distance, using conventional engines. Rail all diesel."
+            id={"ImproveRecyclingHabits"}
+            name={"Improve Recycling Habits"}
+            tooltip1={"Total CO2 emissions (3,1%)"}
+            tooltip2={
+              "20% Increased recycling of plastics + paper + metal cans + glass (2,84% CO2)"
+            }
+            tooltip3={
+              "40% Increased recycling of plastics + paper + metal cans + glass (2,57% CO2)"
+            }
+            tooltip4={
+              "70% Increased recycling of plastics + paper + metal cans + glass (2,17% CO2)"
             }
             handleChart={handleChart}
           ></Range>
@@ -118,14 +131,6 @@ const TuningBar = ({ handleChart }) => {
               ></Radio>
             </div>
           </div>
-          <Range
-            id={"OffshoreWind"}
-            name={"Offshore wind"}
-            title={
-              "~1,400 turbines in 2025, reducing to zero as decommissioned sites are not replanted."
-            }
-            handleChart={handleChart}
-          ></Range>
         </div>
       </div>
     </>

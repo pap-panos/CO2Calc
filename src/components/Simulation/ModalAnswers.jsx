@@ -27,7 +27,7 @@ const ModalAnswers = () => {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-danger"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close
