@@ -32,7 +32,14 @@ const Cars = ({ toNextTab, toPrevTab, role, handleCar }) => {
             <div className="row g-3">
               <div className="col-md-4">
                 <label className="form-label">Initial Value(D)</label>
-                <input type="number" className="form-control" value="12410" />
+                <input
+                  type="number"
+                  className="form-control"
+                  value="12410"
+                  onChange={() => {
+                    console.log("Test");
+                  }}
+                />
               </div>
             </div>
           )}
@@ -41,13 +48,20 @@ const Cars = ({ toNextTab, toPrevTab, role, handleCar }) => {
             <label className="form-label">
               {role === "admin" ? "Litres/100 KM(F)" : "Litres/100 KM"}
             </label>
-            <input type="number" className="form-control" />
+            <input type="number" className="form-control" required />
           </div>
           <div className="col-md-6">
             <label className="form-label">
               {role === "admin" ? "Type of Fuel(G)" : "Type of Fuel"}
             </label>
-            <select className="form-select" defaultValue="0">
+            <select
+              className="form-select"
+              defaultValue="0"
+              onChange={() => {
+                console.log("Test");
+              }}
+              required
+            >
               <option value="0" disabled hidden>
                 Choose...
               </option>

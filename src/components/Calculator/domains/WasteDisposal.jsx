@@ -31,7 +31,14 @@ const WasteDisposal = ({ toNextTab, toPrevTab, role, handleWaste }) => {
             <div className="row g-3">
               <div className="col-md-4">
                 <label className="form-label">Initial Value(D)</label>
-                <input type="number" className="form-control" value="608" />
+                <input
+                  type="number"
+                  className="form-control"
+                  value="608"
+                  onChange={() => {
+                    console.log("Test");
+                  }}
+                />
               </div>
               <div className="col-md-8">
                 <ul>
@@ -45,36 +52,53 @@ const WasteDisposal = ({ toNextTab, toPrevTab, role, handleWaste }) => {
           )}
           {role === "admin" && <h6>USER INPUT</h6>}
 
-          <div className="col-12">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" />
-              <label className="form-check-label">
-                {role === "admin"
-                  ? "CO2 from landfilling(I)"
-                  : "CO2 from landfilling"}
+          <div className="row">
+            <div className="col-md-6">
+              <label className="form-label">
+                {role === "admin" ? "Recycling Factor(D)" : "Recycling Factor"}
               </label>
+              <select
+                className="form-select"
+                defaultValue="0"
+                onChange={() => {
+                  console.log("Test");
+                }}
+                required
+              >
+                <option value="0" disabled hidden>
+                  Choose...
+                </option>
+                <option>No recycling</option>
+                <option>Less than average recycling</option>
+                <option>Same as average recycling</option>
+                <option>More than average recycling</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <label className="form-label">
+                {role === "admin"
+                  ? "Composting Factor(K)"
+                  : "Composting Factor"}
+              </label>
+              <select
+                className="form-select"
+                defaultValue="0"
+                onChange={() => {
+                  console.log("Test");
+                }}
+                required
+              >
+                <option value="0" disabled hidden>
+                  Choose...
+                </option>
+                <option>No composting</option>
+                <option>Less than average composting</option>
+                <option>Same as average composting</option>
+                <option>More than average composting</option>
+              </select>
             </div>
           </div>
-          <div className="col-12">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" />
-              <label className="form-check-label">
-                {role === "admin"
-                  ? "CO2 from waste recycling(J)"
-                  : "CO2 from waste recycling"}
-              </label>
-            </div>
-          </div>
-          <div className="col-12">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" />
-              <label className="form-check-label">
-                {role === "admin"
-                  ? "CO2 from composting(K)"
-                  : "CO2 from composting"}
-              </label>
-            </div>
-          </div>
+
           {role === "admin" && (
             <div className="row mt-3">
               <div className="col-12">

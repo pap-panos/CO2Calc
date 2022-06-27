@@ -31,12 +31,26 @@ const Buildings = ({ toNextTab, toPrevTab, role, handleBuilding }) => {
             <div className="row g-3">
               <div className="col-md-4">
                 <label className="form-label">Initial Value(D)</label>
-                <input type="number" className="form-control" value="1912.6" />
+                <input
+                  type="number"
+                  className="form-control"
+                  value="1912.6"
+                  onChange={() => {
+                    console.log("Test");
+                  }}
+                />
               </div>
               <div className="col-md-4">
                 <label className="form-label">CO2 Heating(heat pumps)(J)</label>
                 <div className="input-group">
-                  <input type="number" className="form-control" value="3400" />
+                  <input
+                    type="number"
+                    className="form-control"
+                    value="3400"
+                    onChange={() => {
+                      console.log("Test");
+                    }}
+                  />
                   <span className="input-group-text">
                     * Country_Factor(co2 per KWH)
                   </span>
@@ -49,13 +63,20 @@ const Buildings = ({ toNextTab, toPrevTab, role, handleBuilding }) => {
             <label className="form-label">
               {role === "admin" ? "Fuel per year(L)" : "Fuel per year"}
             </label>
-            <input type="number" className="form-control" />
+            <input type="number" className="form-control" required />
           </div>
           <div className="col-md-6">
             <label className="form-label">
               {role === "admin" ? "Type of Fuel(K)" : "Type of Fuel"}
             </label>
-            <select className="form-select" defaultValue="0">
+            <select
+              className="form-select"
+              defaultValue="0"
+              onChange={() => {
+                console.log("Test");
+              }}
+              required
+            >
               <option value="0" disabled hidden>
                 Choose...
               </option>
@@ -71,13 +92,20 @@ const Buildings = ({ toNextTab, toPrevTab, role, handleBuilding }) => {
                 ? "Electricity (kWh per year)(N)"
                 : "Electricity (kWh per year)"}
             </label>
-            <input type="number" className="form-control" />
+            <input type="number" className="form-control" required />
           </div>
           <div className="col-md-6">
             <label className="form-label">
               {role === "admin" ? "Grid Type(G)" : "Grid Type"}
             </label>
-            <select className="form-select" defaultValue="0">
+            <select
+              className="form-select"
+              defaultValue="0"
+              onChange={() => {
+                console.log("Test");
+              }}
+              required
+            >
               <option value="0" disabled hidden>
                 Choose...
               </option>

@@ -31,7 +31,14 @@ const Trains = ({ toNextTab, toPrevTab, start, end, role, handleTrain }) => {
             <div className="row g-3">
               <div className="col-md-4">
                 <label className="form-label">kWh per km of travel(G)</label>
-                <input type="number" className="form-control" value="0.75" />
+                <input
+                  type="number"
+                  className="form-control"
+                  value="0.75"
+                  onChange={() => {
+                    console.log("Test");
+                  }}
+                />
               </div>
             </div>
           )}
@@ -42,6 +49,9 @@ const Trains = ({ toNextTab, toPrevTab, start, end, role, handleTrain }) => {
               type="text"
               className="form-control bg-white"
               value={start}
+              onChange={() => {
+                console.log("Test");
+              }}
               disabled
             />
           </div>
@@ -51,6 +61,9 @@ const Trains = ({ toNextTab, toPrevTab, start, end, role, handleTrain }) => {
               type="text"
               className="form-control bg-white"
               value={end}
+              onChange={() => {
+                console.log("Test");
+              }}
               disabled
             />
           </div>
@@ -58,7 +71,7 @@ const Trains = ({ toNextTab, toPrevTab, start, end, role, handleTrain }) => {
             <label className="form-label">
               {role === "admin" ? "Number of trips(D)" : "Number of trips"}
             </label>
-            <input type="number" className="form-control" />
+            <input type="number" className="form-control" required />
           </div>
           <div className="col-md-6">
             <label className="form-label">
@@ -66,7 +79,7 @@ const Trains = ({ toNextTab, toPrevTab, start, end, role, handleTrain }) => {
                 ? "Average distance of trip(E)"
                 : "Average distance of trip"}
             </label>
-            <input type="number" className="form-control" />
+            <input type="number" className="form-control" required />
           </div>
           {role === "admin" && (
             <h6>CALCULATION: D * E * Country_Factor(KWH) * G</h6>

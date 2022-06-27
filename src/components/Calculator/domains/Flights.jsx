@@ -31,17 +31,38 @@ const Flights = ({ toNextTab, toPrevTab, start, end, role, handleFlight }) => {
             <div className="row g-3">
               <div className="col-md-4">
                 <label className="form-label">CO2 per kg (kerosene)(F)</label>
-                <input type="number" className="form-control" value="3.16" />
+                <input
+                  type="number"
+                  className="form-control"
+                  value="3.16"
+                  onChange={() => {
+                    console.log("Test");
+                  }}
+                />
               </div>
               <div className="col-md-4">
                 <label className="form-label">
                   Liters per kg of kerosene(G)
                 </label>
-                <input type="number" className="form-control" value="1.25" />
+                <input
+                  type="number"
+                  className="form-control"
+                  value="1.25"
+                  onChange={() => {
+                    console.log("Test");
+                  }}
+                />
               </div>
               <div className="col-md-4">
                 <label className="form-label">Liters per km travelled(H)</label>
-                <input type="number" className="form-control" value="17" />
+                <input
+                  type="number"
+                  className="form-control"
+                  value="17"
+                  onChange={() => {
+                    console.log("Test");
+                  }}
+                />
               </div>
             </div>
           )}
@@ -52,6 +73,9 @@ const Flights = ({ toNextTab, toPrevTab, start, end, role, handleFlight }) => {
               type="text"
               className="form-control bg-white"
               value={start}
+              onChange={() => {
+                console.log("Test");
+              }}
               disabled
             />
           </div>
@@ -61,6 +85,9 @@ const Flights = ({ toNextTab, toPrevTab, start, end, role, handleFlight }) => {
               type="text"
               className="form-control bg-white"
               value={end}
+              onChange={() => {
+                console.log("Test");
+              }}
               disabled
             />
           </div>
@@ -68,7 +95,7 @@ const Flights = ({ toNextTab, toPrevTab, start, end, role, handleFlight }) => {
             <label className="form-label">
               {role === "admin" ? "Number of Flights(D)" : "Number of Flights"}
             </label>
-            <input type="number" className="form-control" />
+            <input type="number" className="form-control" required />
           </div>
           <div className="col-md-6">
             <label className="form-label">
@@ -76,7 +103,7 @@ const Flights = ({ toNextTab, toPrevTab, start, end, role, handleFlight }) => {
                 ? "Average distance of flight(E)"
                 : "Average distance of flight"}
             </label>
-            <input type="number" className="form-control" />
+            <input type="number" className="form-control" required />
           </div>
           {role === "admin" && <h6>CALCULATION: D*E*F*G*H</h6>}
           <div className="col-12">
