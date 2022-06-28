@@ -42,7 +42,7 @@ const CO2Emmissions = ({ totalData, totalColor }) => {
         display: true,
         title: {
           display: true,
-          text: "Greenhouse Gas Emissions (tons per person)",
+          text: "Greenhouse Gas Emissions (TN PER CAPITA)",
         },
         min: 0,
         max: 10,

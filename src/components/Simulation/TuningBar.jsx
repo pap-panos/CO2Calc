@@ -1,6 +1,5 @@
 import React from "react";
 import Range from "./tuners/Range";
-import Radio from "./tuners/Radio";
 
 const TuningBar = ({ handleChart }) => {
   return (
@@ -90,47 +89,33 @@ const TuningBar = ({ handleChart }) => {
           role="tabpanel"
           aria-labelledby="nav-supply-tab"
         >
-          <div className="card border border-light">
-            <div className="card-body">
-              <p className="form-check-label">CCS power station fuel mix</p>
-              <Radio
-                id={"CCS1"}
-                val={1}
-                title={
-                  "100% coal/biomass, 0% gas/biogas CCS after demonstration plants."
-                }
-                name={"A"}
-                handleChart={handleChart}
-              ></Radio>
-              <Radio
-                id={"CCS2"}
-                val={2}
-                title={
-                  "66% coal/biomass, 33% gas/biogas CCS after demonstration plants."
-                }
-                name={"B"}
-                handleChart={handleChart}
-              ></Radio>
-              <Radio
-                id={"CCS3"}
-                val={3}
-                title={
-                  "33% coal/biomass, 66% gas/biogas CCS after demonstration plant."
-                }
-                name={"C"}
-                handleChart={handleChart}
-              ></Radio>
-              <Radio
-                id={"CCS4"}
-                val={4}
-                title={
-                  "0% coal/biomas, 100% gas/biogas CCS after demonstration plants."
-                }
-                name={"D"}
-                handleChart={handleChart}
-              ></Radio>
-            </div>
-          </div>
+          <Range
+            id={"FossilFuelCombustion"}
+            name={"Capture and storage of CO2 from fossil fuel combustion"}
+            tooltip1={"Total CO2 emissions (25,8%)"}
+            tooltip2={"40% Capture and storage of CO2"}
+            tooltip3={"60% Capture and storage of CO2"}
+            tooltip4={"100% Capture and storage of CO2"}
+            handleChart={handleChart}
+          ></Range>
+          <Range
+            id={"PhotovoltaicParks"}
+            name={"Photovoltaic parks at petrol stations"}
+            tooltip1={"Total CO2 emissions (25,8%)"}
+            tooltip2={"Installed photovoltaic parks at 30% petrol stations"}
+            tooltip3={"Installed photovoltaic parks at 60% petrol stations"}
+            tooltip4={"Installed photovoltaic parks at 100% petrol stations"}
+            handleChart={handleChart}
+          ></Range>
+          <Range
+            id={"WindEnergy"}
+            name={"Wind Energy"}
+            tooltip1={"Total CO2 emissions (25,8%)"}
+            tooltip2={"30% Penetration from wind energy"}
+            tooltip3={"60% Penetration from wind energy"}
+            tooltip4={"90% Penetration from wind energy"}
+            handleChart={handleChart}
+          ></Range>
         </div>
       </div>
     </>

@@ -13,7 +13,7 @@ const Simulation = () => {
     "rgba(255, 99, 132, 0.2)",
     "rgba(255, 99, 132, 1)",
   ]);
-  const [prev, setPrev] = useState([1, 1, 1]);
+  const [prev, setPrev] = useState([1, 1, 1, 1, 1, 1]);
 
   const handleChart = (c, id) => {
     let tempTotalData = [...totalData];
@@ -177,12 +177,168 @@ const Simulation = () => {
             break;
         }
         break;
+      case "FossilFuelCombustion":
+        switch (c) {
+          case "1":
+            for (let i = 0; i < tempTotalData.length; i++) {
+              tempTotalData[i] += (prev[3] - 1) * 0.5;
+            }
+            bar -= (prev[3] - 1) * 8;
+            prev[3] = 1;
+            setPrev(prev);
+            break;
+          case "2":
+            if (prev[3] > 2) {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] += (prev[3] - 2) * 0.5;
+              }
+              bar -= (prev[3] - 2) * 8;
+            } else {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] -= (2 - prev[3]) * 0.5;
+              }
+              bar += (2 - prev[3]) * 8;
+            }
+            prev[3] = 2;
+            setPrev(prev);
+            break;
+          case "3":
+            if (prev[3] > 3) {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] += 0.5;
+              }
+              bar -= 8;
+            } else {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] -= (3 - prev[3]) * 0.5;
+              }
+              bar += (3 - prev[3]) * 8;
+            }
+            prev[3] = 3;
+            setPrev(prev);
+            break;
+          case "4":
+            for (let i = 0; i < tempTotalData.length; i++) {
+              tempTotalData[i] -= (4 - prev[3]) * 0.5;
+            }
+            bar += (4 - prev[3]) * 8;
+            prev[3] = 4;
+            setPrev(prev);
+            break;
+          default:
+            break;
+        }
+        break;
+      case "PhotovoltaicParks":
+        switch (c) {
+          case "1":
+            for (let i = 0; i < tempTotalData.length; i++) {
+              tempTotalData[i] += (prev[4] - 1) * 0.4;
+            }
+            bar -= (prev[4] - 1) * 7.5;
+            prev[4] = 1;
+            setPrev(prev);
+            break;
+          case "2":
+            if (prev[4] > 2) {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] += (prev[4] - 2) * 0.4;
+              }
+              bar -= (prev[4] - 2) * 7.5;
+            } else {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] -= (2 - prev[4]) * 0.4;
+              }
+              bar += (2 - prev[4]) * 7.5;
+            }
+            prev[4] = 2;
+            setPrev(prev);
+            break;
+          case "3":
+            if (prev[4] > 3) {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] += 0.4;
+              }
+              bar -= 7.5;
+            } else {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] -= (3 - prev[4]) * 0.4;
+              }
+              bar += (3 - prev[4]) * 7.5;
+            }
+            prev[4] = 3;
+            setPrev(prev);
+            break;
+          case "4":
+            for (let i = 0; i < tempTotalData.length; i++) {
+              tempTotalData[i] -= (4 - prev[4]) * 0.4;
+            }
+            bar += (4 - prev[4]) * 7.5;
+            prev[4] = 4;
+            setPrev(prev);
+            break;
+          default:
+            break;
+        }
+        break;
+      case "WindEnergy":
+        switch (c) {
+          case "1":
+            for (let i = 0; i < tempTotalData.length; i++) {
+              tempTotalData[i] += (prev[5] - 1) * 0.3;
+            }
+            bar -= (prev[5] - 1) * 5;
+            prev[5] = 1;
+            setPrev(prev);
+            break;
+          case "2":
+            if (prev[5] > 2) {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] += (prev[5] - 2) * 0.3;
+              }
+              bar -= (prev[5] - 2) * 5;
+            } else {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] -= (2 - prev[5]) * 0.3;
+              }
+              bar += (2 - prev[5]) * 5;
+            }
+            prev[5] = 2;
+            setPrev(prev);
+            break;
+          case "3":
+            if (prev[5] > 3) {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] += 0.3;
+              }
+              bar -= 5;
+            } else {
+              for (let i = 0; i < tempTotalData.length; i++) {
+                tempTotalData[i] -= (3 - prev[5]) * 0.3;
+              }
+              bar += (3 - prev[5]) * 5;
+            }
+            prev[5] = 3;
+            setPrev(prev);
+            break;
+          case "4":
+            for (let i = 0; i < tempTotalData.length; i++) {
+              tempTotalData[i] -= (4 - prev[5]) * 0.3;
+            }
+            bar += (4 - prev[5]) * 5;
+            prev[5] = 4;
+            setPrev(prev);
+            break;
+          default:
+            break;
+        }
+        break;
       default:
         break;
     }
 
-    if (tempTotalData[3] < 2) {
-      setTotalData([0.7, 1, 1.5, 2]);
+    if (tempTotalData[3] < 1.5) {
+      setTotalData([0.5, 0.7, 0.9, 1.4]);
     } else {
       setTotalData(tempTotalData);
     }
@@ -194,7 +350,7 @@ const Simulation = () => {
       setProgress(0);
       setTotalColor(["rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)"]);
     } else if (bar >= 55) {
-      setProgress(55);
+      setProgress(bar);
       setTotalColor(["rgba(25, 135, 84, 0.2)", "rgba(25, 135, 84, 1)"]);
     } else {
       setProgress(bar);
