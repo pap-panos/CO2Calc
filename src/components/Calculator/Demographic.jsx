@@ -16,7 +16,7 @@ const Demographic = ({ toNextTab, toPrevTab, handleCity, cities }) => {
               }}
               required
             >
-              <option disabled value="0">
+              <option disabled hidden value="0">
                 Choose...
               </option>
               {cities}
@@ -24,7 +24,10 @@ const Demographic = ({ toNextTab, toPrevTab, handleCity, cities }) => {
           </div>
           <div className="col-md-6 p-2">
             <label className="form-label">What is your age?</label>
-            <select className="form-select" defaultValue="3" required>
+            <select className="form-select" defaultValue="0" required>
+              <option disabled hidden value="0">
+                Choose...
+              </option>
               <option value="1">Below 18</option>
               <option value="2">18-24</option>
               <option value="3">25-34</option>
@@ -34,8 +37,11 @@ const Demographic = ({ toNextTab, toPrevTab, handleCity, cities }) => {
             </select>
           </div>
           <div className="col-md-6 p-2">
-            <label className="form-label">What is your genre?</label>
-            <select className="form-select" defaultValue="1" required>
+            <label className="form-label">What is your gender?</label>
+            <select className="form-select" defaultValue="0" required>
+              <option disabled hidden value="0">
+                Choose...
+              </option>
               <option value="1">Male</option>
               <option value="2">Female</option>
               <option value="3">Do not wish to specify</option>
@@ -43,7 +49,10 @@ const Demographic = ({ toNextTab, toPrevTab, handleCity, cities }) => {
           </div>
           <div className="col-md-6 p-2">
             <label className="form-label">What is your marital status?</label>
-            <select className="form-select" defaultValue="1" required>
+            <select className="form-select" defaultValue="0" required>
+              <option disabled hidden value="0">
+                Choose...
+              </option>
               <option value="1">Single</option>
               <option value="2">Married or in a domestic partnership</option>
               <option value="3">Divorced</option>

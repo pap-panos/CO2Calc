@@ -360,6 +360,19 @@ const Simulation = () => {
 
   return (
     <div className="container-fluid py-3">
+      <div className="d-flex justify-content-center">
+        <div
+          className="border border-success border-1 p-2 m-2 bg-white rounded text-center"
+          style={{
+            width: "fit-content",
+          }}
+        >
+          <h6>
+            The European Commission's target of a 55% net reduction in
+            greenhouse gas emissions by 2030
+          </h6>
+        </div>
+      </div>
       <ProgressBar progress={progress}></ProgressBar>
       <ModalAnswers></ModalAnswers>
       <div className="row justify-content-md-center">
