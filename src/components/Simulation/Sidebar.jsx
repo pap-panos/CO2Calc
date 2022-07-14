@@ -22,7 +22,7 @@ const Sidebar = () => {
           aria-selected="true"
         >
           <FontAwesomeIcon icon={faIndustry} className="me-2"></FontAwesomeIcon>
-          Emmissions
+          Emissions
         </button>
       </div>
     </div>
