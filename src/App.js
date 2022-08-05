@@ -1,5 +1,4 @@
 import "./App.css";
-import Home from "./components/LandingPage/Home";
 import Contact from "./components/LandingPage/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,12 +14,17 @@ import Users from "./components/Administrative/Users";
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Axios from "axios";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   // Check If User is Logged In
   const [logged, setLogged] = useState(false);
   const [username, setUsername] = useState("");
   const [role, setRole] = useState("");
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
 
   const isLoggedIn = async () => {
     await Axios.get(process.env.REACT_APP_BACKEND_URL + "api/users/auth", {
@@ -44,17 +48,28 @@ function App() {
 
   useEffect(() => {
     isLoggedIn();
-  }, []);
+  }, [logged]);
 
   return (
     <div className="App">
-      <Navbar auth={!logged} username={username} role={role} />
+      <Navbar auth={!logged} username={username} showSidebar={showSidebar} />
+      {logged && (
+        <Sidebar sidebar={sidebar} showSidebar={showSidebar} role={role} />
+      )}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<ProtectedRoute element={<Dashboard />} auth={logged} />}
+        />
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/login"
-          element={<ProtectedRoute element={<Login />} auth={!logged} />}
+          element={
+            <ProtectedRoute
+              element={<Login setLogged={setLogged} />}
+              auth={!logged}
+            />
+          }
         />
         <Route
           path="/register"
@@ -68,7 +83,12 @@ function App() {
         />
         <Route
           path="/logout"
-          element={<ProtectedRoute element={<Logout />} auth={logged} />}
+          element={
+            <ProtectedRoute
+              element={<Logout setLogged={setLogged} />}
+              auth={logged}
+            />
+          }
         />
         <Route
           path="/users"

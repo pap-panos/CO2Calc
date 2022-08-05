@@ -1,8 +1,10 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import Home from "./components/LandingPage/Home";
 
 const ProtectedRoute = ({ element, auth }) => {
-  return <div>{auth === true ? element : <Navigate to={"/"} />}</div>;
+  if (auth) {
+    return element;
+  } else return <Home />;
 };
 
 export default ProtectedRoute;

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
-const Login = () => {
+const Login = ({ setLogged }) => {
   //History Declare
   const history = useNavigate();
 
@@ -36,13 +36,14 @@ const Login = () => {
       (res) => {
         console.log(res.status);
         window.alert("Login Successfully");
-        window.location.reload();
+        setLogged(true);
         history("/");
         // Token is generated When we Logged In.
       },
       (error) => {
         window.alert("Invalid Credentials");
         console.log(error);
+        setLogged(false);
       }
     );
   };

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
-const Logout = () => {
+const Logout = ({ setLogged }) => {
   //History Declare
   const history = useNavigate();
 
@@ -11,8 +11,8 @@ const Logout = () => {
       withCredentials: true,
     }).then(
       (res) => {
+        setLogged(false);
         history("/");
-        window.location.reload();
       },
       (error) => {
         window.alert("An occured on logout");

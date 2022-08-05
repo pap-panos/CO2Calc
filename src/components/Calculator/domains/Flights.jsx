@@ -91,19 +91,90 @@ const Flights = ({ toNextTab, toPrevTab, start, end, role, handleFlight }) => {
               disabled
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
+            <label className="form-label">Description</label>
+            <input
+              type="text"
+              className="form-control"
+              disabled
+              value="Domestic"
+            />
+          </div>
+          <div className="col-md-4">
             <label className="form-label">
               {role === "admin" ? "Number of Flights(D)" : "Number of Flights"}
             </label>
             <input type="number" className="form-control" required />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
             <label className="form-label">
               {role === "admin"
                 ? "Average distance of flight(E)"
                 : "Average distance of flight"}
             </label>
+            <input
+              type="number"
+              className="form-control"
+              value="500"
+              disabled
+            />
+          </div>
+          <div className="col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              disabled
+              value="Short Haul (<3 Hours)"
+            />
+          </div>
+          <div className="col-md-4">
             <input type="number" className="form-control" required />
+          </div>
+          <div className="col-md-4">
+            <input
+              type="number"
+              className="form-control"
+              value="1100"
+              disabled
+            />
+          </div>
+          <div className="col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              disabled
+              value="Medium Haul (3-6 Hours)"
+            />
+          </div>
+          <div className="col-md-4">
+            <input type="number" className="form-control" required />
+          </div>
+          <div className="col-md-4">
+            <input
+              type="number"
+              className="form-control"
+              value="3000"
+              disabled
+            />
+          </div>
+          <div className="col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              disabled
+              value="Long Haul (6-12 Hours)"
+            />
+          </div>
+          <div className="col-md-4">
+            <input type="number" className="form-control" required />
+          </div>
+          <div className="col-md-4">
+            <input
+              type="number"
+              className="form-control"
+              value="6000"
+              disabled
+            />
           </div>
           {role === "admin" && <h6>CALCULATION: D*E*F*G*H</h6>}
           <div className="col-12">

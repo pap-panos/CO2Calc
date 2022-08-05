@@ -44,13 +44,17 @@ const Cars = ({ toNextTab, toPrevTab, role, handleCar }) => {
             </div>
           )}
           {role === "admin" && <h6>USER INPUT</h6>}
-          <div className="col-md-6">
+          <div className="col-md-4">
+            <label className="form-label">Distance Travelled (km/year)</label>
+            <input type="number" className="form-control" required />
+          </div>
+          <div className="col-md-4">
             <label className="form-label">
               {role === "admin" ? "Litres/100 KM(F)" : "Litres/100 KM"}
             </label>
             <input type="number" className="form-control" required />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
             <label className="form-label">
               {role === "admin" ? "Type of Fuel(G)" : "Type of Fuel"}
             </label>
