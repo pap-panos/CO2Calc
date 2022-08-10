@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Sidebar from "./components/Sidebar";
+import ViewDomains from "./components/Dashboard/Domains/ViewDomains";
 
 function App() {
   // Check If User is Logged In
@@ -60,6 +61,10 @@ function App() {
         <Route
           path="/"
           element={<ProtectedRoute element={<Dashboard />} auth={logged} />}
+        />
+        <Route
+          path="/domains"
+          element={<ProtectedRoute element={<ViewDomains />} auth={logged} />}
         />
         <Route path="/contact" element={<Contact />} />
         <Route
